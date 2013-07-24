@@ -1,0 +1,20 @@
+Starting server on port 4922
+Recieved command  POST /url http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com/index.html
+  Executing command  POST /url http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com/index.html
+http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com/index.html success
+Recieved command  POST /elements .//descendant-or-self::*[@id = 'navlink-1']
+  Executing command  POST /elements .//descendant-or-self::*[@id = 'navlink-1']
+Recieved command  GET /element/0/text null
+  Executing command  GET /element/0/text null
+Recieved command  POST /elements .//descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]
+  Executing command  POST /elements .//descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]
+Recieved command  POST /element/1/elements .//descendant-or-self::a
+  Executing command  POST /element/1/elements .//descendant-or-self::a
+Recieved command  GET /element/0/text null
+  Executing command  GET /element/0/text null
+Recieved command  POST /elements .//*[((self::input and (not(@type) or @type != 'submit')) or self::textarea or self::select) and (@name = 'Enter Email' or @id = 'Enter Email' or @placeholder = 'Enter Email' or @id = //label[normalize-space() = 'Enter Email']/@for or (self::select and ./option[(@value = "" or not(@value)) and contains(normalize-space(), "Enter Email")]))]
+  Executing command  POST /elements .//*[((self::input and (not(@type) or @type != 'submit')) or self::textarea or self::select) and (@name = 'Enter Email' or @id = 'Enter Email' or @placeholder = 'Enter Email' or @id = //label[normalize-space() = 'Enter Email']/@for or (self::select and ./option[(@value = "" or not(@value)) and contains(normalize-space(), "Enter Email")]))]
+Recieved command  DELETE /cookies null
+  Executing command  DELETE /cookies null
+Recieved command  DELETE /session null
+  Executing command  DELETE /session null

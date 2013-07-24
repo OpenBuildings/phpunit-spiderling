@@ -1,0 +1,32 @@
+<body>
+	<ul class="subnav">
+		<li><a class="navlink" id="navlink-1" title="Subpage Title 1" href="http://example.com/test_functest/subpage1">Subpage 1 <img src="icon1.png" alt="icon 1"/> </a></li>
+		<li><a class="navlink" id="navlink-2" title="Subpage Title 2" href="http://example.com/test_functest/subpage2">Subpage 2 <img src="icon2.png" alt="icon 2"/> </a></li>
+	</ul>
+<div style="position: fixed; background: lightgrey; border: 1px solid red; padding: 10px 30px 10px 20px; color: black; width: 800px; margin-left: -400px; top: 10px; left: 50%; border-radius: 4px; z-index: 10000; font-size: 18px; line-height: 25px; ">
+	<div style="font-size:12px; padding-bottom:5px;"></div>
+	<span>Test Title</span>
+	<div 
+		style="position:absolute; top: 5px; right: 5px; background: darkgray; color:white; width: 20px; height: 20px; line-height: 16px; text-align:center; font-weight:bold; cursor:pointer; border-radius: 4px;"
+		onclick="javascript: this.parentNode.parentNode.removeChild(this.parentNode); return false;">
+		&times;
+	</div>
+
+	<div style="margin-top:10px;"> 
+		Javascript Errors: 
+		<ul style="font-family:_monospace; font-size: 12px; background-color:white; padding: 10px;">
+		<li style="margin-bottom:5px;">
+			<div style="color:red;">test error</div>
+			<div style="font-size:11px">in  line 1</div>
+		</li>
+		</ul>
+	</div>
+
+	<div style="margin-top:10px;"> 
+		Javascript Console Messages: 
+		<div style="font-size: 12px; background-color:white; padding: 10px;">
+			<pre style="margin:0 0 5px 0;">message1</pre>
+			<pre style="margin:0 0 5px 0;">message2</pre>
+		</div>
+	</div>
+</div></body>

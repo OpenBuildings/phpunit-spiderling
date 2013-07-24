@@ -1,0 +1,1 @@
+Run Spiderling (Phantomjs, Selenium or Kohana) in your PHPUnit tests with a fluid interface.
