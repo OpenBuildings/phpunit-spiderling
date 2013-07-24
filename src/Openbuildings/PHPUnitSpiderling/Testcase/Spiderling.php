@@ -3,7 +3,7 @@
 namespace Openbuildings\PHPUnitSpiderling;
 
 /**
- * Testcase_Functest definition
+ * Base Testcase
  *
  * @package Functest
  * @author Ivan Kerin
@@ -11,12 +11,33 @@ namespace Openbuildings\PHPUnitSpiderling;
  */
 class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	
-	public static $_drivers;
+	/**
+	 * Holds drivers fixtures
+	 * @var array
+	 */
+	protected static $_drivers = array();
 
+	/**
+	 * Current Driver for this testcase
+	 * @var Openbuildings\Spiderling\Driver
+	 */
 	protected $_driver;
+
+	/**
+	 * The type of the spiderling driver (kohana, selenium ...)
+	 * @var string
+	 */
 	protected $_driver_type;
+
+	/**
+	 * The Environment object making sure you can set env variables and restore them after the test 
+	 * @var Openbuildings\EnvironmentBackup\Environment
+	 */
 	protected $_environment;
 
+	/**
+	 * Restore environment and clear the specific driver if its active
+	 */
 	public function tearDown()
 	{
 		if ($this->is_driver_active())
@@ -32,6 +53,13 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		parent::tearDown();
 	}
 
+	/**
+	 * Return the current driver. This will use driver_simple, driver_kohana ... methods 
+	 * You can override them yourself in order to have custom configs
+	 *
+	 * Drivers are cached as fixtured for the whole testrun and is shared between tests.
+	 * @return Openbuildings\Spiderling\Driver
+	 */
 	public function driver()
 	{
 		if ( ! $this->_driver)
@@ -72,26 +100,56 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		return $this->_driver;
 	}
 
+	/**
+	 * Return Openbuildings\Spiderling\Driver_Simple
+	 * override this to configure
+	 * 
+	 * @return Openbuildings\Spiderling\Driver_Simple
+	 */
 	public function driver_simple()
 	{
 		return new \Openbuildings\Spiderling\Driver_Simple();
 	}
 
+	/**
+	 * Return Openbuildings\Spiderling\Driver_Kohana
+	 * override this to configure
+	 * 
+	 * @return Openbuildings\Spiderling\Driver_Kohana
+	 */
 	public function driver_kohana()
 	{
 		return new \Openbuildings\Spiderling\Driver_Kohana();
 	}
 
+	/**
+	 * Return Openbuildings\Spiderling\Driver_Selenium
+	 * override this to configure
+	 * 
+	 * @return Openbuildings\Spiderling\Driver_Selenium
+	 */
 	public function driver_selenium()
 	{
 		return new \Openbuildings\Spiderling\Driver_Selenium();
 	}
 
+	/**
+	 * Return Openbuildings\Spiderling\Driver_Phantomjs
+	 * override this to configure
+	 * 
+	 * @return Openbuildings\Spiderling\Driver_Phantomjs
+	 */
 	public function driver_phantomjs()
 	{
 		return new \Openbuildings\Spiderling\Driver_Phantomjs();
 	}
 
+	/**
+	 * Get the type of the driver for the current test. 
+	 * Use annotations to change the driver type e.g. @driver selenium
+	 * 
+	 * @return string
+	 */
 	public function driver_type()
 	{
 		if ($this->_driver_type === NULL) 
@@ -104,6 +162,10 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		return $this->_driver_type;
 	}
 
+	/**
+	 * return the environment object that handles setting / restoring env variables
+	 * @return Openbuildings\EnvrionmentBackup\Envrionment
+	 */
 	public function environment()
 	{
 		if ($this->_environment === NULL)
@@ -118,16 +180,29 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		return $this->_environment;
 	}
 
+	/**
+	 * Return true if the driver has been invoked in some way
+	 * @return boolean 
+	 */
 	public function is_driver_active()
 	{
 		return (bool) $this->_driver;
 	}
 
+	/**
+	 * Return true if the environment has been modified / accessed
+	 * @return boolean 
+	 */
 	public function is_environment_active()
 	{
 		return (bool) $this->_environment;
 	}
 
+	/**
+	 * Return the root node of the current page, opened by the driver
+	 * Extend it with custom assertions from Assert
+	 * @return Openbuildings\Spiderling\Node 
+	 */
 	public function page()
 	{
 		$page = $this->driver()->page();
@@ -136,6 +211,12 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		return $page;
 	}
 
+	/**
+	 * Initiate a visit with the currently selected driver
+	 * @param  string $uri   
+	 * @param  array  $query 
+	 * @return $this
+	 */
 	public function visit($uri, array $query = array())
 	{
 		$this->driver()->visit($uri, $query);
@@ -143,21 +224,39 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		return $this;
 	}
 
+	/**
+	 * Return the content of the last request from the currently selected driver
+	 * @return string 
+	 */
 	public function content()
 	{
 		return $this->driver()->content();
 	}
 
+	/**
+	 * Return the current browser url without the domain
+	 * @return string 
+	 */
 	public function current_path()
 	{
 		return $this->driver()->current_path();
 	}
 
+	/**
+	 * Return the current url
+	 * @return string
+	 */
 	public function current_url()
 	{
 		return $this->driver()->current_url();
 	}
 
+	/**
+	 * All other methods are handled by the root node of the page
+	 * @param  string $method 
+	 * @param  array $args   
+	 * @return mixed         
+	 */
 	public function __call($method, $args)
 	{
 		return call_user_func_array(array($this->page(), $method), $args);
