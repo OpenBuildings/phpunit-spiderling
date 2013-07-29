@@ -91,7 +91,7 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 					break;
 
 					default:
-						throw new Exception("Driver :driver does not exist {$name}");
+						throw new \Exception("Driver :driver does not exist {$name}");
 				}
 				$this->_driver = self::$_drivers[$type] = $driver;
 			}
@@ -174,7 +174,6 @@ class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 				'globals' => new \Openbuildings\EnvironmentBackup\Environment_Group_Globals(),
 				'server' => new \Openbuildings\EnvironmentBackup\Environment_Group_Server(),
 				'static' => new \Openbuildings\EnvironmentBackup\Environment_Group_Static(),
-				'config' => new \Openbuildings\EnvironmentBackup\Environment_Group_Config(),
 			));
 		}
 		return $this->_environment;
