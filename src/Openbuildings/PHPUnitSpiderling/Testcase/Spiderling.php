@@ -9,7 +9,7 @@ namespace Openbuildings\PHPUnitSpiderling;
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
+abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	
 	/**
 	 * Holds drivers fixtures
