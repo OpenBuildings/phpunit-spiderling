@@ -56,7 +56,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 		if ( ! $directory)
 			throw new Exception('You must set a directory to output errors to');
 
-		$this->_directory = $directory;
+		$this->_directory = rtrim($directory, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$this->_base_url = $base_url;
 
 		self::autocreate_directory($directory);
@@ -72,7 +72,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 			$content = self::to_absolute_attribute($attribute, $content, $this->_base_url);
 		}
 
-		$testview = self::render_file(__DIR__.'/../../../assets/error-page.php', array(
+		$testview = self::render_file(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'error-page.php', array(
 			'url' => $driver->current_url(), 
 			'title' => $title, 
 			'javascript_errors' => $driver->javascript_errors(),
