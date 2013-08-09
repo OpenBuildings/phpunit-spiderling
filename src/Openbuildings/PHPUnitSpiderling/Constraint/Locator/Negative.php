@@ -7,9 +7,10 @@ use Openbuildings\Spiderling\Exception_Found;
 /**
  * Phpunit_Framework_Constraint_Negative_Locator definition
  *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
+ * @package    Openbuildings\PHPUnitSpiderling
+ * @author     Ivan Kerin
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
 	

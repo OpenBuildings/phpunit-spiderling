@@ -5,11 +5,12 @@ namespace Openbuildings\PHPUnitSpiderling;
 use Openbuildings\Spiderling\Exception_Notfound;
 
 /**
- * Phpunit_Framework_Constraint_Locator definition
+ * Constraint_Locator definition
  *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
+ * @package    Openbuildings\PHPUnitSpiderling
+ * @author     Ivan Kerin
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Constraint_Locator extends \PHPUnit_Framework_Constraint {
 	

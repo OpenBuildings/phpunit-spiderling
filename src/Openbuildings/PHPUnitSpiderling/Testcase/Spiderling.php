@@ -5,9 +5,10 @@ namespace Openbuildings\PHPUnitSpiderling;
 /**
  * Base Testcase
  *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
+ * @package    Openbuildings\PHPUnitSpiderling
+ * @author     Ivan Kerin
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	
@@ -200,7 +201,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return the root node of the current page, opened by the driver
 	 * Extend it with custom assertions from Assert
-	 * @return Openbuildings\Spiderling\Node 
+	 * @return Openbuildings\Spiderling\Page 
 	 */
 	public function page()
 	{
@@ -208,46 +209,6 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		$page->extension('Openbuildings\PHPUnitSpiderling\Assert');
 
 		return $page;
-	}
-
-	/**
-	 * Initiate a visit with the currently selected driver
-	 * @param  string $uri   
-	 * @param  array  $query 
-	 * @return $this
-	 */
-	public function visit($uri, array $query = array())
-	{
-		$this->driver()->visit($uri, $query);
-		
-		return $this;
-	}
-
-	/**
-	 * Return the content of the last request from the currently selected driver
-	 * @return string 
-	 */
-	public function content()
-	{
-		return $this->driver()->content();
-	}
-
-	/**
-	 * Return the current browser url without the domain
-	 * @return string 
-	 */
-	public function current_path()
-	{
-		return $this->driver()->current_path();
-	}
-
-	/**
-	 * Return the current url
-	 * @return string
-	 */
-	public function current_url()
-	{
-		return $this->driver()->current_url();
 	}
 
 	/**
