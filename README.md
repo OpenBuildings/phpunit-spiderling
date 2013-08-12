@@ -99,7 +99,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 
 ### Switching drivers
 
-PHPUnit Spiderling uses the PHP Annotations to set up wich driver to use fore each test. Heres how you do that:
+PHPUnit Spiderling uses the PHP Annotations to set up which driver to use fore each test. Heres how you do that:
 
 ```php
 use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
@@ -125,7 +125,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 }
 ```
 
-You can have different drivers for each test, the available ones are: ``simple``, ``kohana``, ``selenium`` and ``phantomjs`` - where the default driver is ``simple``. Each driver is loaded with the default configuration, but you can change it by midifying the appropriate method that loads the driver
+You can have different drivers for each test, the available ones are: ``simple``, ``kohana``, ``selenium`` and ``phantomjs`` - where the default driver is ``simple``. Each driver is loaded with the default configuration, but you can change it by modifying the appropriate method that loads the driver
 
 - driver_simple() - will return Driver_Simple object
 - driver_kohana() - will return Driver_Kohana object

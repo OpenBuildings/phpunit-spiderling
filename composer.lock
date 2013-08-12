@@ -45,16 +45,16 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.2",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "0.2.2"
+                "reference": "0.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/0.2.2",
-                "reference": "0.2.2",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/0.2.5",
+                "reference": "0.2.5",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "symfony/css-selector": "v2.2.2"
             },
             "require-dev": {
-                "claylo/selenium-server-standalone": "dev-master",
+                "claylo/selenium-server-standalone": "2.*",
                 "openbuildings/kohana-test-bootsrap": "dev-master"
             },
             "type": "library",
@@ -84,7 +84,7 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2013-07-24 07:31:06"
+            "time": "2013-08-08 17:51:29"
         },
         {
             "name": "symfony/css-selector",
