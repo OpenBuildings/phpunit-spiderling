@@ -13,7 +13,7 @@
         "openbuildings/spiderling": "0.2.*"
     },
     "require-dev": {
-        "openbuildings/kohana-test-bootsrap": "dev-master",
+        "openbuildings/kohana-test-bootsrap": "0.1.*",
         "claylo/selenium-server-standalone": "2.*"
     },
     "autoload": {

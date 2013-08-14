@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f8d8fa8a68206ebcf6b35c0150f5214e",
+    "hash": "53ddff978bda2a71803dae6ad100f363",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -45,25 +45,25 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.5",
+            "version": "0.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "0.2.5"
+                "reference": "0.2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/0.2.5",
-                "reference": "0.2.5",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/0.2.9",
+                "reference": "0.2.9",
                 "shasum": ""
             },
             "require": {
                 "openbuildings/environment-backup": "0.1.*",
-                "symfony/css-selector": "v2.2.2"
+                "symfony/css-selector": "2.3.*"
             },
             "require-dev": {
                 "claylo/selenium-server-standalone": "2.*",
-                "openbuildings/kohana-test-bootsrap": "dev-master"
+                "openbuildings/kohana-test-bootsrap": "0.1.*"
             },
             "type": "library",
             "autoload": {
@@ -84,21 +84,21 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2013-08-08 17:51:29"
+            "time": "2013-08-14 09:45:07"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.2.2",
+            "version": "v2.3.3",
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "v2.2.2"
+                "reference": "v2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.2",
-                "reference": "v2.2.2",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.3.3",
+                "reference": "v2.3.3",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -127,11 +127,15 @@
                 {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
                 }
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2013-05-19 19:00:13"
+            "time": "2013-07-21 12:12:18"
         }
     ],
     "packages-dev": [
@@ -169,16 +173,16 @@
         },
         {
             "name": "openbuildings/kohana-test-bootsrap",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/kohana-test-bootstrap.git",
-                "reference": "cddca062f44f638568e6065527f73c7f8301c139"
+                "reference": "0.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/cddca062f44f638568e6065527f73c7f8301c139",
-                "reference": "cddca062f44f638568e6065527f73c7f8301c139",
+                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/0.1.0",
+                "reference": "0.1.0",
                 "shasum": ""
             },
             "type": "library",
@@ -200,16 +204,16 @@
                 }
             ],
             "description": "Kohana core classes repackaged with composer, used to test modules",
-            "time": "2013-07-17 15:13:43"
+            "time": "2013-08-12 09:28:25"
         }
     ],
     "aliases": [
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "openbuildings/kohana-test-bootsrap": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],
