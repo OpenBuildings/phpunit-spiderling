@@ -92,7 +92,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 					break;
 
 					default:
-						throw new \Exception("Driver '{$this->_driver}' does not exist");
+						throw new \Exception("Driver '{$type}' does not exist");
 				}
 				$this->_driver = self::$_drivers[$type] = $driver;
 			}
