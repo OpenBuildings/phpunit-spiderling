@@ -111,6 +111,8 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 		$page_content = str_replace('</body>', $testview.'</body>', $content);
 
 		file_put_contents($this->_directory."/$filename.html", $page_content);
+
+		$driver->screenshot($this->_directory."/$filename.png");
 	}
 
 	/**
