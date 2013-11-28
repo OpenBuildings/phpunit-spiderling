@@ -102,7 +102,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 		}
 
 		$testview = self::render_file(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'error-page.php', array(
-			'url' => $driver->current_url(), 
+			'url' => $driver->current_url(),
 			'title' => $title, 
 			'javascript_errors' => $driver->javascript_errors(),
 			'javascript_messages' => $driver->javascript_messages(),
@@ -112,7 +112,11 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 		file_put_contents($this->_directory."/$filename.html", $page_content);
 
-		$driver->screenshot($this->_directory."/$filename.png");
+		try 
+		{
+			$driver->screenshot($this->_directory."/$filename.png");
+		}
+		catch (\Openbuildings\Spiderling\Exception_Notimplemented $e){}
 	}
 
 	/**
