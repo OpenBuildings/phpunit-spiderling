@@ -1,4 +1,9 @@
-# PHPUnit Spiderling [![Build Status](https://travis-ci.org/OpenBuildings/phpunit-spiderling.png?branch=master)](https://travis-ci.org/OpenBuildings/phpunit-spiderling) [![Coverage Status](https://coveralls.io/repos/OpenBuildings/phpunit-spiderling/badge.png?branch=master)](https://coveralls.io/r/OpenBuildings/phpunit-spiderling?branch=master)
+# PHPUnit Spiderling 
+
+[![Build Status](https://travis-ci.org/OpenBuildings/phpunit-spiderling.png?branch=master)](https://travis-ci.org/OpenBuildings/phpunit-spiderling) 
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/badges/quality-score.png?s=9a1986ae84df9ddd029a3ad41d9030d4f4263453)](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/)
+[![Code Coverage](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/badges/coverage.png?s=37d447d31d3dc3b4129e6e7c79a33c192f71c322)](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/)
+[![Latest Stable Version](https://poser.pugx.org/openbuildings/phpunit-spiderling/v/stable.png)](https://packagist.org/packages/openbuildings/phpunit-spiderling)
 
 Heavily inspired by capybara [capybara](https://github.com/jnicklas/capybara). Using the [spiderling](https://github.com/OpenBuildings/spiderling) package to the fullest. It gives you the ability to quickly write integration test with powerful DSL and choose between different drivers with different combinations of features and performance - e.g. selenium, phanomjs or raw php with curl.
 
