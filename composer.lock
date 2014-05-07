@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/environment-backup.git",
-                "reference": "0.1.1"
+                "reference": "382d388ec2a9d9c414965a20347671328ab0b1f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/environment-backup/zipball/0.1.1",
-                "reference": "0.1.1",
+                "url": "https://api.github.com/repos/OpenBuildings/environment-backup/zipball/382d388ec2a9d9c414965a20347671328ab0b1f2",
+                "reference": "382d388ec2a9d9c414965a20347671328ab0b1f2",
                 "shasum": ""
             },
             "require-dev": {
@@ -45,16 +45,16 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.9",
+            "version": "0.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "0.2.9"
+                "reference": "c061d7c59238df27545c470e7cf6aec8ce4ab9fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/0.2.9",
-                "reference": "0.2.9",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/c061d7c59238df27545c470e7cf6aec8ce4ab9fd",
+                "reference": "c061d7c59238df27545c470e7cf6aec8ce4ab9fd",
                 "shasum": ""
             },
             "require": {
@@ -84,21 +84,21 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2013-08-14 09:45:07"
+            "time": "2013-12-17 09:42:05"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.3.3",
+            "version": "v2.3.13",
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "v2.3.3"
+                "reference": "0d2ab42d49536760f045069415832c9c604c8cc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.3.3",
-                "reference": "v2.3.3",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/0d2ab42d49536760f045069415832c9c604c8cc7",
+                "reference": "0d2ab42d49536760f045069415832c9c604c8cc7",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -135,7 +137,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-21 12:12:18"
+            "time": "2014-04-18 20:35:25"
         }
     ],
     "packages-dev": [
@@ -145,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/claylo/selenium-server-standalone.git",
-                "reference": "2.32.0"
+                "reference": "8ceae6ce2b2257e7f0cee573640e77a3591af111"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/claylo/selenium-server-standalone/zipball/2.32.0",
-                "reference": "2.32.0",
+                "url": "https://api.github.com/repos/claylo/selenium-server-standalone/zipball/8ceae6ce2b2257e7f0cee573640e77a3591af111",
+                "reference": "8ceae6ce2b2257e7f0cee573640e77a3591af111",
                 "shasum": ""
             },
             "type": "library",
@@ -173,16 +175,16 @@
         },
         {
             "name": "openbuildings/kohana-test-bootsrap",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/kohana-test-bootstrap.git",
-                "reference": "0.1.0"
+                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
+                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
                 "shasum": ""
             },
             "type": "library",
@@ -204,7 +206,7 @@
                 }
             ],
             "description": "Kohana core classes repackaged with composer, used to test modules",
-            "time": "2013-08-12 09:28:25"
+            "time": "2013-10-01 08:57:54"
         }
     ],
     "aliases": [
