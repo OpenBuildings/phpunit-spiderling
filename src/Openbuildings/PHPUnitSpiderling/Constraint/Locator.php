@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Openbuildings\PHPUnitSpiderling;
 
@@ -13,7 +13,7 @@ use Openbuildings\Spiderling\Exception_Notfound;
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Constraint_Locator extends \PHPUnit_Framework_Constraint {
-	
+
 	protected $_type;
 	protected $_selector;
 	protected $_filters;
@@ -27,12 +27,12 @@ class Constraint_Locator extends \PHPUnit_Framework_Constraint {
 
 	protected function matches($other)
 	{
-		try 
+		try
 		{
 			$other->find(array($this->_type, $this->_selector, $this->_filters));
 			return TRUE;
-		} 
-		catch (Exception_Notfound $excption) 
+		}
+		catch (Exception_Notfound $excption)
 		{
 			return FALSE;
 		}

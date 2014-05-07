@@ -1,6 +1,6 @@
-# PHPUnit Spiderling 
+# PHPUnit Spiderling
 
-[![Build Status](https://travis-ci.org/OpenBuildings/phpunit-spiderling.png?branch=master)](https://travis-ci.org/OpenBuildings/phpunit-spiderling) 
+[![Build Status](https://travis-ci.org/OpenBuildings/phpunit-spiderling.png?branch=master)](https://travis-ci.org/OpenBuildings/phpunit-spiderling)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/badges/quality-score.png?s=9a1986ae84df9ddd029a3ad41d9030d4f4263453)](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/)
 [![Code Coverage](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/badges/coverage.png?s=37d447d31d3dc3b4129e6e7c79a33c192f71c322)](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/)
 [![Latest Stable Version](https://poser.pugx.org/openbuildings/phpunit-spiderling/v/stable.png)](https://packagist.org/packages/openbuildings/phpunit-spiderling)
@@ -43,16 +43,16 @@ To use phpunit spiderling you need to write your test as "extends Testcase_Spide
 
 The custom assertions are:
 
-- ``assertHasCss($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasNoCss($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasField($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasNoField($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasXPath($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasNoXPath($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasLink($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasNoLink($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasButton($selector, array $filters = array(), $message = NULL)`` 
-- ``assertHasNoButton($selector, array $filters = array(), $message = NULL)`` 
+- ``assertHasCss($selector, array $filters = array(), $message = NULL)``
+- ``assertHasNoCss($selector, array $filters = array(), $message = NULL)``
+- ``assertHasField($selector, array $filters = array(), $message = NULL)``
+- ``assertHasNoField($selector, array $filters = array(), $message = NULL)``
+- ``assertHasXPath($selector, array $filters = array(), $message = NULL)``
+- ``assertHasNoXPath($selector, array $filters = array(), $message = NULL)``
+- ``assertHasLink($selector, array $filters = array(), $message = NULL)``
+- ``assertHasNoLink($selector, array $filters = array(), $message = NULL)``
+- ``assertHasButton($selector, array $filters = array(), $message = NULL)``
+- ``assertHasNoButton($selector, array $filters = array(), $message = NULL)``
 
 All of them assert that an element is on the page (or is not) by using a specific locator type and filters. Also they are actually an extension of Openbuildings\Spiderling\Page so they are available to all the nested nodes (and are asserting only in the context of the node)
 
@@ -77,7 +77,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 
 ### Environment
 
-You can modify the environment only for a specific test by using the ``->environment()`` method. It returns a [Environment Backup](https://github.com/OpenBuildings/environment-backup) object, and whatever you set it to will be restored at the end of the test. 
+You can modify the environment only for a specific test by using the ``->environment()`` method. It returns a [Environment Backup](https://github.com/OpenBuildings/environment-backup) object, and whatever you set it to will be restored at the end of the test.
 
 Here's an example usage:
 

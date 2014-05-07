@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Openbuildings\PHPUnitSpiderling;
 
@@ -17,8 +17,8 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 	 * Convert an attribute strigng from a relative to absolute, by providing a base_url
 	 * @param  string $attribute name of the attribute, e.g. src, href
 	 * @param  string $content   the string where to do the change
-	 * @param  string $base_url  
-	 * @return string            
+	 * @param  string $base_url
+	 * @return string
 	 */
 	public static function to_absolute_attribute($attribute, $content, $base_url = NULL)
 	{
@@ -27,7 +27,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Check if a directory does not exist, create it, otherwise check if it is writable
-	 * @param  string $directory 
+	 * @param  string $directory
 	 * @throws Exception If directory is not writable
 	 */
 	public static function autocreate_directory($directory)
@@ -43,11 +43,11 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Delete all the files from a directory
-	 * @param  string $directory 
+	 * @param  string $directory
 	 */
 	public static function clear_directory($directory)
 	{
-		foreach (scandir($directory) as $file) 
+		foreach (scandir($directory) as $file)
 		{
 			if ($file !== '.' AND $file !== '..')
 			{
@@ -58,9 +58,9 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Execute a php script and get the output of that script as a string, optionally pass variables as an associative array to be converted to local variables inside of the file
-	 * @param  string $filename 
-	 * @param  array  $data     
-	 * @return string           
+	 * @param  string $filename
+	 * @param  array  $data
+	 * @return string
 	 */
 	public static function render_file($filename, array $data = array())
 	{
@@ -88,22 +88,22 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Save the current content of the driver into an html file. Add javascript errors, messages and a title to the html content
-	 * @param  \Openbuildings\Spiderling\Driver $driver   
-	 * @param  string                           $filename 
-	 * @param  string                           $title    
+	 * @param  \Openbuildings\Spiderling\Driver $driver
+	 * @param  string                           $filename
+	 * @param  string                           $title
 	 */
 	public function save_driver_content(\Openbuildings\Spiderling\Driver $driver, $filename, $title)
 	{
 		$content = $driver->content();
 
-		foreach (array('href', 'action', 'src') as $attribute) 
+		foreach (array('href', 'action', 'src') as $attribute)
 		{
 			$content = self::to_absolute_attribute($attribute, $content, $this->_base_url);
 		}
 
 		$testview = self::render_file(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'error-page.php', array(
 			'url' => $driver->current_url(),
-			'title' => $title, 
+			'title' => $title,
 			'javascript_errors' => $driver->javascript_errors(),
 			'javascript_messages' => $driver->javascript_messages(),
 		));
@@ -112,7 +112,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 		file_put_contents($this->_directory."/$filename.html", $page_content);
 
-		try 
+		try
 		{
 			$driver->screenshot($this->_directory."/$filename.png");
 		}
@@ -121,17 +121,17 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Implement PHPUnit_Framework_TestListener, save driver content if there was an error
-	 * @param \PHPUnit_Framework_Test $test      
-	 * @param \Exception              $exception 
-	 * @param integer                  $time      
+	 * @param \PHPUnit_Framework_Test $test
+	 * @param \Exception              $exception
+	 * @param integer                  $time
 	 */
 	public function addError(\PHPUnit_Framework_Test $test, \Exception $exception, $time)
 	{
 		if ($test instanceof Testcase_Spiderling AND $test->is_driver_active() AND $test->driver()->is_page_active())
 		{
 			$this->save_driver_content(
-				$test->driver(), 
-				get_class($test).'_'.$test->getName(FALSE), 
+				$test->driver(),
+				get_class($test).'_'.$test->getName(FALSE),
 				$exception->getMessage()
 			);
 		}
@@ -139,9 +139,9 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	/**
 	 * Implement PHPUnit_Framework_TestListener, save driver content if there was an error
-	 * @param \PHPUnit_Framework_Test                 $test      
-	 * @param \PHPUnit_Framework_AssertionFailedError $failure 
-	 * @param integer                                 $time      
+	 * @param \PHPUnit_Framework_Test                 $test
+	 * @param \PHPUnit_Framework_AssertionFailedError $failure
+	 * @param integer                                 $time
 	 */
 	public function addFailure(\PHPUnit_Framework_Test $test, \PHPUnit_Framework_AssertionFailedError $failure, $time)
 	{
@@ -149,8 +149,8 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 		{
 
 			$this->save_driver_content(
-				$test->driver(), 
-				get_class($test).'_'.$test->getName(FALSE), 
+				$test->driver(),
+				get_class($test).'_'.$test->getName(FALSE),
 				$failure->getMessage()
 			);
 		}

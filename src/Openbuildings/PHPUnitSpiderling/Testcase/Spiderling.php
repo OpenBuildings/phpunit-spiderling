@@ -11,7 +11,7 @@ namespace Openbuildings\PHPUnitSpiderling;
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
-	
+
 	/**
 	 * Holds drivers fixtures
 	 * @var array
@@ -31,7 +31,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	protected $_driver_type;
 
 	/**
-	 * The Environment object making sure you can set env variables and restore them after the test 
+	 * The Environment object making sure you can set env variables and restore them after the test
 	 * @var Openbuildings\EnvironmentBackup\Environment
 	 */
 	protected $_environment;
@@ -50,12 +50,12 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 		{
 			$this->environment()->restore();
 		}
-		
+
 		parent::tearDown();
 	}
 
 	/**
-	 * Return the current driver. This will use driver_simple, driver_kohana ... methods 
+	 * Return the current driver. This will use driver_simple, driver_kohana ... methods
 	 * You can override them yourself in order to have custom configs
 	 *
 	 * Drivers are cached as fixtured for the whole testrun and is shared between tests.
@@ -73,7 +73,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 			}
 			else
 			{
-				switch ($type) 
+				switch ($type)
 				{
 					case 'simple':
 						$driver = $this->driver_simple();
@@ -82,7 +82,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 					case 'kohana':
 						$driver = $this->driver_kohana();
 					break;
-					
+
 					case 'phantomjs':
 						$driver = $this->driver_phantomjs();
 					break;
@@ -104,7 +104,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return Openbuildings\Spiderling\Driver_Simple
 	 * override this to configure
-	 * 
+	 *
 	 * @return Openbuildings\Spiderling\Driver_Simple
 	 */
 	public function driver_simple()
@@ -115,7 +115,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return Openbuildings\Spiderling\Driver_Kohana
 	 * override this to configure
-	 * 
+	 *
 	 * @return Openbuildings\Spiderling\Driver_Kohana
 	 */
 	public function driver_kohana()
@@ -126,7 +126,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return Openbuildings\Spiderling\Driver_Selenium
 	 * override this to configure
-	 * 
+	 *
 	 * @return Openbuildings\Spiderling\Driver_Selenium
 	 */
 	public function driver_selenium()
@@ -137,7 +137,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return Openbuildings\Spiderling\Driver_Phantomjs
 	 * override this to configure
-	 * 
+	 *
 	 * @return Openbuildings\Spiderling\Driver_Phantomjs
 	 */
 	public function driver_phantomjs()
@@ -146,14 +146,14 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Get the type of the driver for the current test. 
+	 * Get the type of the driver for the current test.
 	 * Use annotations to change the driver type e.g. @driver selenium
-	 * 
+	 *
 	 * @return string
 	 */
 	public function driver_type()
 	{
-		if ($this->_driver_type === NULL) 
+		if ($this->_driver_type === NULL)
 		{
 			$annotations = $this->getAnnotations();
 
@@ -182,7 +182,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Return true if the driver has been invoked in some way
-	 * @return boolean 
+	 * @return boolean
 	 */
 	public function is_driver_active()
 	{
@@ -191,7 +191,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Return true if the environment has been modified / accessed
-	 * @return boolean 
+	 * @return boolean
 	 */
 	public function is_environment_active()
 	{
@@ -201,7 +201,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return the root node of the current page, opened by the driver
 	 * Extend it with custom assertions from Assert
-	 * @return Openbuildings\Spiderling\Page 
+	 * @return Openbuildings\Spiderling\Page
 	 */
 	public function page()
 	{
@@ -213,9 +213,9 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * All other methods are handled by the root node of the page
-	 * @param  string $method 
-	 * @param  array $args   
-	 * @return mixed         
+	 * @param  string $method
+	 * @param  array $args
+	 * @return mixed
 	 */
 	public function __call($method, $args)
 	{

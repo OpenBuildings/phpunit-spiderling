@@ -4,12 +4,12 @@ use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
 use Openbuildings\PHPUnitSpiderling\Constraint_Locator_Negative;
 
 /**
- * Functest_TestsTest 
+ * Functest_TestsTest
  *
  * @group functest
  * @group functest.locator
  * @group functest.locator.negative
- * 
+ *
  * @package Functest
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.

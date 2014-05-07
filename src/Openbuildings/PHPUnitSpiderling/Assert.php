@@ -14,9 +14,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html tag exists inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasCss($node, $selector, array $filters = array(), $message = NULL)
@@ -26,9 +26,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html tag does not exist inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasNoCss($node, $selector, array $filters = array(), $message = NULL)
@@ -38,9 +38,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an form field exists inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasField($node, $selector, array $filters = array(), $message = NULL)
@@ -50,9 +50,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an form field does not exist inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasNoField($node, $selector, array $filters = array(), $message = NULL)
@@ -62,9 +62,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html tag exists inside the current tag, matched by xpath
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasXPath($node, $selector, array $filters = array(), $message = NULL)
@@ -74,9 +74,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html tag does not exist inside the current tag matched by xpath
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasNoXPath($node, $selector, array $filters = array(), $message = NULL)
@@ -86,9 +86,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html anchor tag exists inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasLink($node, $selector, array $filters = array(), $message = NULL)
@@ -98,9 +98,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html anchor tag does not exist inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasNoLink($node, $selector, array $filters = array(), $message = NULL)
@@ -110,9 +110,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html button tag exists inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasButton($node, $selector, array $filters = array(), $message = NULL)
@@ -122,9 +122,9 @@ abstract class Assert {
 
 	/**
 	 * Assert that an html button tag does not exist inside the current tag
-	 * @param  string|array   $selector 
-	 * @param  array          $filters  
-	 * @param  string         $message  
+	 * @param  string|array   $selector
+	 * @param  array          $filters
+	 * @param  string         $message
 	 * @return Functest_Node  $this
 	 */
 	public static function assertHasNoButton($node, $selector, array $filters = array(), $message = NULL)

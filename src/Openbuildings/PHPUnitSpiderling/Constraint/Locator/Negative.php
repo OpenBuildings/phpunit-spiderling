@@ -13,7 +13,7 @@ use Openbuildings\Spiderling\Exception_Found;
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
-	
+
 	protected $_type;
 	protected $_selector;
 	protected $_filters;
@@ -27,11 +27,11 @@ class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
 
 	protected function matches($other)
 	{
-		try 
+		try
 		{
 			$other->not_present(array($this->_type, $this->_selector, $this->_filters));
 			return TRUE;
-		} 
+		}
 		catch (Exception_Found $excption)
 		{
 			return FALSE;
