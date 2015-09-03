@@ -14,7 +14,7 @@
     },
     "require-dev": {
         "openbuildings/kohana-test-bootsrap": "0.1.*",
-        "claylo/selenium-server-standalone": "2.*"
+        "se/selenium-server-standalone": "^2.43"
     },
     "autoload": {
         "psr-0": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}

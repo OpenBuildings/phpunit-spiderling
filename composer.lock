@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "53ddff978bda2a71803dae6ad100f363",
+    "hash": "b5847e630c3e9ae435b427cbb22fe32d",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -45,25 +46,24 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.14",
+            "version": "0.2.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "c061d7c59238df27545c470e7cf6aec8ce4ab9fd"
+                "reference": "6e7756b4393ccb2107c12d9bd88c5396df69a327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/c061d7c59238df27545c470e7cf6aec8ce4ab9fd",
-                "reference": "c061d7c59238df27545c470e7cf6aec8ce4ab9fd",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/6e7756b4393ccb2107c12d9bd88c5396df69a327",
+                "reference": "6e7756b4393ccb2107c12d9bd88c5396df69a327",
                 "shasum": ""
             },
             "require": {
-                "openbuildings/environment-backup": "0.1.*",
-                "symfony/css-selector": "2.3.*"
+                "openbuildings/environment-backup": "~0.1.1",
+                "symfony/css-selector": "~2.6.6"
             },
             "require-dev": {
-                "claylo/selenium-server-standalone": "2.*",
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/kohana-test-bootsrap": "~0.1.2"
             },
             "type": "library",
             "autoload": {
@@ -79,35 +79,37 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
                     "role": "Author"
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2013-12-17 09:42:05"
+            "time": "2015-09-03 15:15:02"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.3.13",
+            "version": "v2.6.11",
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "0d2ab42d49536760f045069415832c9c604c8cc7"
+                "reference": "560e446b93883050a5874908652e8e912e8cbe44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/0d2ab42d49536760f045069415832c9c604c8cc7",
-                "reference": "0d2ab42d49536760f045069415832c9c604c8cc7",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/560e446b93883050a5874908652e8e912e8cbe44",
+                "reference": "560e446b93883050a5874908652e8e912e8cbe44",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -121,58 +123,24 @@
             ],
             "authors": [
                 {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony CssSelector Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-04-18 20:35:25"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-15 13:32:45"
         }
     ],
     "packages-dev": [
-        {
-            "name": "claylo/selenium-server-standalone",
-            "version": "2.32.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/claylo/selenium-server-standalone.git",
-                "reference": "8ceae6ce2b2257e7f0cee573640e77a3591af111"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/claylo/selenium-server-standalone/zipball/8ceae6ce2b2257e7f0cee573640e77a3591af111",
-                "reference": "8ceae6ce2b2257e7f0cee573640e77a3591af111",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "OpenQA",
-                    "homepage": "http://seleniumhq.org/"
-                }
-            ],
-            "description": "Composer distribution of Selenium Server Standalone, the browser automation framework.",
-            "keywords": [
-                "selenium",
-                "testing"
-            ],
-            "time": "2013-04-17 02:08:23"
-        },
         {
             "name": "openbuildings/kohana-test-bootsrap",
             "version": "0.1.2",
@@ -207,19 +175,49 @@
             ],
             "description": "Kohana core classes repackaged with composer, used to test modules",
             "time": "2013-10-01 08:57:54"
+        },
+        {
+            "name": "se/selenium-server-standalone",
+            "version": "v2.46.0+p1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
+                "reference": "91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a",
+                "reference": "91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a",
+                "shasum": ""
+            },
+            "bin": [
+                "composer/bin/selenium-server-standalone"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Eisenschmidt",
+                    "email": "sven.eisenschmidt@gmail.com"
+                }
+            ],
+            "description": "Composer distribution of Selenium Server Standalone, the browser automation framework. Adds a executable to your composer bin directory.",
+            "homepage": "https://github.com/sveneisenschmidt/selenium-server-standalone",
+            "keywords": [
+                "selenium",
+                "testing"
+            ],
+            "time": "2015-07-18 08:03:29"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }
