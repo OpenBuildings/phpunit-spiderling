@@ -79,6 +79,10 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 						$driver = $this->driver_simple();
 					break;
 
+					case 'simplexml':
+						$driver = $this->driver_simple_xml();
+					break;
+
 					case 'kohana':
 						$driver = $this->driver_kohana();
 					break;
@@ -110,6 +114,17 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	public function driver_simple()
 	{
 		return new \Openbuildings\Spiderling\Driver_Simple();
+	}
+
+	/**
+	 * Return Openbuildings\Spiderling\Driver_SimpleXML
+	 * override this to configure
+	 *
+	 * @return Openbuildings\Spiderling\Driver_SimpleXML
+	 */
+	public function driver_simple_xml()
+	{
+		return new \Openbuildings\Spiderling\Driver_SimpleXML();
 	}
 
 	/**
