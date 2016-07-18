@@ -13,13 +13,13 @@ class SpiderlingTest extends Testcase_Spiderling {
 	public function driver_phantomjs()
 	{
 		return parent::driver_phantomjs()
-			->base_url('http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com');
+			->base_url('https://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg');
 	}
 
 	public function driver_selenium()
 	{
 		return parent::driver_selenium()
-			->base_url('http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com');
+			->base_url('https://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill/sample.jpg');
 	}
 
 	/**
