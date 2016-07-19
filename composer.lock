@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b5847e630c3e9ae435b427cbb22fe32d",
+    "hash": "5900f99afb48017ed1e1dd286c683d43",
+    "content-hash": "87fd3fc58b7b79057e2f90c51efe0157",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -91,12 +92,12 @@
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/CssSelector.git",
+                "url": "https://github.com/symfony/css-selector.git",
                 "reference": "560e446b93883050a5874908652e8e912e8cbe44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/560e446b93883050a5874908652e8e912e8cbe44",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/560e446b93883050a5874908652e8e912e8cbe44",
                 "reference": "560e446b93883050a5874908652e8e912e8cbe44",
                 "shasum": ""
             },
@@ -178,16 +179,16 @@
         },
         {
             "name": "se/selenium-server-standalone",
-            "version": "v2.46.0+p1",
+            "version": "v2.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a"
+                "reference": "96e00effc36b985c7880c0ca8d0c184755564b0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a",
-                "reference": "91c6caa46ef0e7ea70518f9c0dc4f0c05e41701a",
+                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/96e00effc36b985c7880c0ca8d0c184755564b0f",
+                "reference": "96e00effc36b985c7880c0ca8d0c184755564b0f",
                 "shasum": ""
             },
             "bin": [
@@ -210,7 +211,7 @@
                 "selenium",
                 "testing"
             ],
-            "time": "2015-07-18 08:03:29"
+            "time": "2015-06-05 06:02:48"
         }
     ],
     "aliases": [],
