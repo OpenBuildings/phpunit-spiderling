@@ -14,7 +14,6 @@
         "openbuildings/environment-backup": "0.1.*"
     },
     "require-dev": {
-        "openbuildings/kohana-test-bootsrap": "0.1.*",
         "se/selenium-server-standalone": "^2.43"
     },
     "autoload": {
