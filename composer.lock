@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5900f99afb48017ed1e1dd286c683d43",
-    "content-hash": "87fd3fc58b7b79057e2f90c51efe0157",
+    "content-hash": "f16f2629ebb0b39d3ebb5e882673d9fe",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -142,41 +141,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "openbuildings/kohana-test-bootsrap",
-            "version": "0.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OpenBuildings/kohana-test-bootstrap.git",
-                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
-                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Kerin",
-                    "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
-                    "role": "Author"
-                }
-            ],
-            "description": "Kohana core classes repackaged with composer, used to test modules",
-            "time": "2013-10-01 08:57:54"
-        },
         {
             "name": "se/selenium-server-standalone",
             "version": "v2.46.0",
