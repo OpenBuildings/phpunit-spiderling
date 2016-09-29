@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "94b983f166a8cbd7e715116fcf052a86",
+    "content-hash": "f16f2629ebb0b39d3ebb5e882673d9fe",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -141,106 +141,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "kohana/core",
-            "version": "v3.3.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kohana/core.git",
-                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kohana/core/zipball/bdbe81afb5a09cee4269d2e2210a0d293265231a",
-                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "kohana/koharness": "*@dev",
-                "kohana/unittest": "3.3.*@dev"
-            },
-            "suggest": {
-                "ext-curl": "*",
-                "ext-http": "*",
-                "ext-mcrypt": "*"
-            },
-            "type": "library",
-            "extra": {
-                "installer-paths": {
-                    "vendor/{$vendor}/{$name}": [
-                        "type:kohana-module"
-                    ]
-                },
-                "branch-alias": {
-                    "dev-3.3/develop": "3.3.x-dev",
-                    "dev-3.4/develop": "3.4.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kohana Team",
-                    "email": "team@kohanaframework.org",
-                    "homepage": "http://kohanaframework.org/team",
-                    "role": "developer"
-                }
-            ],
-            "description": "Core system classes for the Kohana application framework",
-            "homepage": "http://kohanaframework.org",
-            "keywords": [
-                "framework",
-                "kohana"
-            ],
-            "time": "2016-07-25 13:15:13"
-        },
-        {
-            "name": "openbuildings/kohana-test-bootstrap",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OpenBuildings/kohana-test-bootstrap.git",
-                "reference": "83b9e254f385b907c859b8332e4396b151a7e80e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/83b9e254f385b907c859b8332e4396b151a7e80e",
-                "reference": "83b9e254f385b907c859b8332e4396b151a7e80e",
-                "shasum": ""
-            },
-            "require": {
-                "kohana/core": "^3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Kerin",
-                    "email": "ikerin@gmail.com",
-                    "role": "Author"
-                },
-                {
-                    "name": "Haralan Dobrev",
-                    "email": "hkdobrev@gmail.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Helper package for testing Kohana modules",
-            "time": "2016-07-28 14:07:23"
-        },
         {
             "name": "se/selenium-server-standalone",
             "version": "v2.46.0",

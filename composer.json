@@ -14,8 +14,7 @@
         "openbuildings/environment-backup": "0.1.*"
     },
     "require-dev": {
-        "se/selenium-server-standalone": "^2.43",
-        "openbuildings/kohana-test-bootstrap": "0.2.*"
+        "se/selenium-server-standalone": "^2.43"
     },
     "autoload": {
         "psr-0": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}
