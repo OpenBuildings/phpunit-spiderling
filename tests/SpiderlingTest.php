@@ -1,7 +1,11 @@
 <?php
 
 use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\Spiderling\Driver_Kohana;
+use Openbuildings\Spiderling\Driver_Phantomjs;
 use Openbuildings\Spiderling\Driver_Phantomjs_Connection;
+use Openbuildings\Spiderling\Driver_Selenium;
+use Openbuildings\Spiderling\Driver_Simple;
 
 /**
  * @package Functest
@@ -10,16 +14,17 @@ use Openbuildings\Spiderling\Driver_Phantomjs_Connection;
  */
 class SpiderlingTest extends Testcase_Spiderling {
 
+	const BASE_URL = 'http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com';
+	const PAGE = '/index.html';
+
 	public function driver_phantomjs()
 	{
-		return parent::driver_phantomjs()
-			->base_url('http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com');
+		return parent::driver_phantomjs()->base_url(self::BASE_URL);
 	}
 
 	public function driver_selenium()
 	{
-		return parent::driver_selenium()
-			->base_url('http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com');
+		return parent::driver_selenium()->base_url(self::BASE_URL);
 	}
 
 	/**
@@ -27,19 +32,9 @@ class SpiderlingTest extends Testcase_Spiderling {
 	 */
 	public function test_simple()
 	{
-		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Simple', $this->driver());
-
-		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
-
-		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
-
-		$subnav = $this->find('.subnav');
-
-		$link = $subnav->find('a', array('at' => 0));
-
-		$this->assertEquals('Subpage 1', $link->text());
-
-		$this->assertHasField('Enter Email');
+		$this->assertInstanceOf(Driver_Simple::class, $this->driver());
+		$this->loadContentInDriver();
+		$this->assertContentOnPage();
 	}
 
 	/**
@@ -47,19 +42,9 @@ class SpiderlingTest extends Testcase_Spiderling {
 	 */
 	public function test_kohana()
 	{
-		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Kohana', $this->driver());
-
-		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
-
-		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
-
-		$subnav = $this->find('.subnav');
-
-		$link = $subnav->find('a', array('at' => 0));
-
-		$this->assertEquals('Subpage 1', $link->text());
-
-		$this->assertHasField('Enter Email');
+		$this->assertInstanceOf(Driver_Kohana::class, $this->driver());
+		$this->loadContentInDriver();
+		$this->assertContentOnPage();
 	}
 
 	/**
@@ -67,19 +52,9 @@ class SpiderlingTest extends Testcase_Spiderling {
 	 */
 	public function test_phantomjs()
 	{
-		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Phantomjs', $this->driver());
-
-		$this->visit('/index.html');
-
-		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
-
-		$subnav = $this->find('.subnav');
-
-		$link = $subnav->find('a', array('at' => 0));
-
-		$this->assertContains('Subpage 1', $link->text());
-
-		$this->assertHasField('Enter Email');
+		$this->assertInstanceOf(Driver_Phantomjs::class, $this->driver());
+		$this->visitPage();
+		$this->assertContentOnPage();
 	}
 
 	/**
@@ -87,18 +62,29 @@ class SpiderlingTest extends Testcase_Spiderling {
 	 */
 	public function test_selenium()
 	{
-		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Selenium', $this->driver());
+		$this->assertInstanceOf(Driver_Selenium::class, $this->driver());
+		$this->visitPage();
+		$this->assertContentOnPage();
+	}
 
-		$this->visit('/index.html');
-
+	private function assertContentOnPage()
+	{
 		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
 
 		$subnav = $this->find('.subnav');
-
 		$link = $subnav->find('a', array('at' => 0));
 
-		$this->assertContains('Subpage 1', $link->text());
-
+		$this->assertEquals('Subpage 1', $link->text());
 		$this->assertHasField('Enter Email');
+	}
+
+	private function loadContentInDriver()
+	{
+		$this->driver()->content(file_get_contents(__DIR__.self::PAGE));
+	}
+
+	private function visitPage()
+	{
+		$this->visit(self::PAGE);
 	}
 }
