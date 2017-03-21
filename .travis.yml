@@ -1,6 +1,8 @@
 ---
 language: php
 
+sudo: false
+
 php:
   - 5.3
   - 5.4
@@ -9,6 +11,14 @@ php:
   - 7
   - 7.1
 
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 notifications:
   email: false
   slack:
@@ -16,8 +26,6 @@ notifications:
 
 addons:
   firefox: "31.0"
-
-before_install: composer selfupdate
 
 install: composer install --no-interaction
 
