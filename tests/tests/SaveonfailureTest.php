@@ -40,10 +40,14 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_add_error_and_failure()
 	{
-		$failure = $this->getMock('PHPUnit_Framework_AssertionFailedError');
-		$error = $this->getMock('Exception');
+		$failure = $this->getMockBuilder('PHPUnit_Framework_AssertionFailedError')->getMock();
+		$error = $this->getMockBuilder('Exception')->getMock();
 
-		$listener = $this->getMock('Openbuildings\PHPUnitSpiderling\Saveonfailure', array('save_driver_content'), array(), 'Saveonfailure_Test', FALSE);
+		$listener = $this->getMockBuilder('Openbuildings\PHPUnitSpiderling\Saveonfailure')
+			->setMethods(array('save_driver_content'))
+			->setMockClassName('Saveonfailure_Test')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$listener
 			->expects($this->exactly(2))
@@ -107,7 +111,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 CONTENT;
 
-		$driver = $this->getMock('Openbuildings\Spiderling\Driver_Simple');
+		$driver = $this->getMockBuilder('Openbuildings\Spiderling\Driver_Simple')->getMock();
 
 		$driver
 			->expects($this->once())

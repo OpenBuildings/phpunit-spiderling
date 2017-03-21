@@ -23,10 +23,16 @@ class Constraint_LocatorTest extends Testcase_Spiderling {
 	{
 		$this->driver()->content(file_get_contents(__DIR__.'/../../testdata/index.html'));
 
-		$other = $this->getMock('OpenBuildings\Spiderling\Node', array('find'), array($this->driver()));
+		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
+			->setMethods(array('find'))
+			->setConstructorArgs(array($this->driver()))
+			->getMock();
 		$node1 = $this->find('#navlink-1');
 
-		$exception = $this->getMock('Openbuildings\Spiderling\Exception_Notfound', NULL, array(), 'Exception_Notfound_Test', FALSE);
+		$exception = $this->getMockBuilder('Openbuildings\Spiderling\Exception_Notfound')
+			->setMockClassName('Exception_Notfound_Test')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$other->expects($this->at(0))
 			->method('find')
