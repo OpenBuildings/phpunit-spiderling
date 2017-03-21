@@ -4,28 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f16f2629ebb0b39d3ebb5e882673d9fe",
+    "content-hash": "3652f6387c72e7c52df2e3654412a5ec",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/environment-backup.git",
-                "reference": "382d388ec2a9d9c414965a20347671328ab0b1f2"
+                "reference": "db94e7c77fa9d35b48a5e40218d335f1891d805e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/environment-backup/zipball/382d388ec2a9d9c414965a20347671328ab0b1f2",
-                "reference": "382d388ec2a9d9c414965a20347671328ab0b1f2",
+                "url": "https://api.github.com/repos/OpenBuildings/environment-backup/zipball/db94e7c77fa9d35b48a5e40218d335f1891d805e",
+                "reference": "db94e7c77fa9d35b48a5e40218d335f1891d805e",
                 "shasum": ""
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "dev-master"
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": "^4.0, <4.5"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Openbuildings\\EnvironmentBackup\\": "src/"
                 }
             },
@@ -37,33 +38,34 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
                     "role": "Author"
                 }
             ],
             "description": "Backup/restore environment variables: globals, static vars, configs",
-            "time": "2013-07-24 07:26:52"
+            "time": "2016-10-01T12:08:40+00:00"
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.23",
+            "version": "0.2.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "6e7756b4393ccb2107c12d9bd88c5396df69a327"
+                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/6e7756b4393ccb2107c12d9bd88c5396df69a327",
-                "reference": "6e7756b4393ccb2107c12d9bd88c5396df69a327",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/f49536ac508fe1214d2f0407dd239eb6dec6505d",
+                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d",
                 "shasum": ""
             },
             "require": {
                 "openbuildings/environment-backup": "~0.1.1",
-                "symfony/css-selector": "~2.6.6"
+                "symfony/css-selector": "^2.3|^3.0"
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "~0.1.2"
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": "^4.0|^5.0",
+                "se/selenium-server-standalone": "2.40"
             },
             "type": "library",
             "autoload": {
@@ -83,39 +85,38 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2015-09-03 15:15:02"
+            "time": "2016-09-29T07:05:05+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.6.11",
-            "target-dir": "Symfony/Component/CssSelector",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "560e446b93883050a5874908652e8e912e8cbe44"
+                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/560e446b93883050a5874908652e8e912e8cbe44",
-                "reference": "560e446b93883050a5874908652e8e912e8cbe44",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
+                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\CssSelector\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -137,26 +138,29 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-15 13:32:45"
+            "time": "2017-02-21T09:12:04+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "se/selenium-server-standalone",
-            "version": "v2.46.0",
+            "version": "v2.53.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "96e00effc36b985c7880c0ca8d0c184755564b0f"
+                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/96e00effc36b985c7880c0ca8d0c184755564b0f",
-                "reference": "96e00effc36b985c7880c0ca8d0c184755564b0f",
+                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/ef4eea9c99efb9c0e3084e9cae625662ccd43361",
+                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361",
                 "shasum": ""
             },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
             "bin": [
-                "composer/bin/selenium-server-standalone"
+                "bin/selenium-server-standalone"
             ],
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -175,7 +179,7 @@
                 "selenium",
                 "testing"
             ],
-            "time": "2015-06-05 06:02:48"
+            "time": "2016-07-01T14:16:52+00:00"
         }
     ],
     "aliases": [],

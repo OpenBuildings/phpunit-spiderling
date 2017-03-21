@@ -10,8 +10,8 @@
         }
     ],
     "require" : {
-        "openbuildings/spiderling": "0.2.*",
-        "openbuildings/environment-backup": "0.1.*"
+        "openbuildings/spiderling": "^0.2",
+        "openbuildings/environment-backup": "^0.1"
     },
     "require-dev": {
         "se/selenium-server-standalone": "^2.43"
