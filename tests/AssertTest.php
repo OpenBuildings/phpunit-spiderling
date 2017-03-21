@@ -17,7 +17,7 @@ class AssertTest extends Testcase_Spiderling {
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
 
 		Assert::assertHasCss($this->page(), '#navlink-1', array('text' => 'Subpage 1'));
 		Assert::assertHasNoCss($this->page(), '#navlink-111', array('text' => 'Subpage 1'));

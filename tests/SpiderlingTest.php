@@ -29,7 +29,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 	{
 		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Simple', $this->driver());
 
-		$this->driver()->content(file_get_contents(__DIR__.'/../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
 
 		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
 
@@ -49,7 +49,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 	{
 		$this->assertInstanceOf('Openbuildings\Spiderling\Driver_Kohana', $this->driver());
 
-		$this->driver()->content(file_get_contents(__DIR__.'/../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
 
 		$this->assertHasCss('#navlink-1', array('text' => 'Subpage 1'));
 

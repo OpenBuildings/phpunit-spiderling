@@ -21,7 +21,7 @@ class Constraint_Locator_NegativeTest extends Testcase_Spiderling {
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../../../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/../../index.html'));
 
 		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
 			->setMethods(array('not_present'))

@@ -98,7 +98,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_save_driver_content()
 	{
-		$dir = __DIR__.'/../testdata/test_save/';
+		$dir = __DIR__.'/save-on-failure/';
 		$listener = new Saveonfailure($dir, 'http://example.com');
 
 		$content = <<<CONTENT
@@ -136,6 +136,6 @@ CONTENT;
 
 		$listener->save_driver_content($driver, 'filename', 'Test Title');
 
-		$this->assertFileEquals($dir.'../expected.html', $dir.'filename.html');
+		$this->assertFileEquals(__DIR__.'/expected.html', $dir.'filename.html');
 	}
 }
