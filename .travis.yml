@@ -30,7 +30,7 @@ addons:
 install: composer install --no-interaction
 
 script:
-  - phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 before_script:
   - mkdir -p build/logs
