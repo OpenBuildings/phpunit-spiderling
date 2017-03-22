@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a22d9b180d05eaa5e8461ce8266124c",
+    "content-hash": "a1a79f48ee9c821a44f1c6966c740a87",
     "packages": [
         {
             "name": "openbuildings/environment-backup",
@@ -839,23 +839,20 @@
         },
         {
             "name": "se/selenium-server-standalone",
-            "version": "v2.53.1",
+            "version": "v2.43.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361"
+                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/ef4eea9c99efb9c0e3084e9cae625662ccd43361",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361",
+                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
+                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
                 "shasum": ""
             },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
             "bin": [
-                "bin/selenium-server-standalone"
+                "composer/bin/selenium-server-standalone"
             ],
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -874,7 +871,7 @@
                 "selenium",
                 "testing"
             ],
-            "time": "2016-07-01T14:16:52+00:00"
+            "time": "2014-10-07T11:47:50+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
