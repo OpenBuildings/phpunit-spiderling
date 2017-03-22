@@ -113,6 +113,7 @@ class SaveOnFailure implements \PHPUnit\Framework\TestListener
         try {
             $driver->screenshot($this->_directory."/$filename.png");
         } catch (\Openbuildings\Spiderling\Exception_Notimplemented $e) {
+            // Ignore not generating the screenshot if the driver doesn't support it
         }
     }
 
