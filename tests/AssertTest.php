@@ -1,6 +1,8 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+namespace Openbuildings\PHPUnitSpiderling\Test;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\Assert;
 
 /**
@@ -10,7 +12,7 @@ use Openbuildings\PHPUnitSpiderling\Assert;
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class AssertTest extends Testcase_Spiderling {
+class AssertTest extends TestCase {
 
 	/**
 	 * @driver simple

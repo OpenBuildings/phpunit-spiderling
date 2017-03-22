@@ -3,14 +3,14 @@
 namespace Openbuildings\PHPUnitSpiderling;
 
 /**
- * Base Testcase
+ * Base TestCase
  *
  * @package    Openbuildings\PHPUnitSpiderling
  * @author     Ivan Kerin
  * @copyright  (c) 2013 OpenBuildings Ltd.
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class Testcase_Spiderling extends \PHPUnit\Framework\TestCase {
+abstract class TestCase extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * Holds drivers fixtures

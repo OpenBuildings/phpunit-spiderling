@@ -1,7 +1,9 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Constraint_Locator;
+namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\Constraint\LocatorConstraint;
 
 /**
  * Functest_TestsTest
@@ -14,7 +16,7 @@ use Openbuildings\PHPUnitSpiderling\Constraint_Locator;
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class Constraint_LocatorTest extends Testcase_Spiderling {
+class LocatorConstraintTest extends TestCase {
 
 	/**
 	 * @driver simple
@@ -44,7 +46,7 @@ class Constraint_LocatorTest extends Testcase_Spiderling {
 			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
 			->will($this->throwException($exception));
 
-		$locator = new Constraint_Locator('css', '.test', array('filter name' => 'filter'));
+		$locator = new LocatorConstraint('css', '.test', array('filter name' => 'filter'));
 
 		$this->assertTrue($locator->evaluate($other, '', TRUE));
 

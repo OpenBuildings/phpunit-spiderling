@@ -2,16 +2,13 @@
 
 namespace Openbuildings\PHPUnitSpiderling;
 
-
 /**
- * Phpunit_Saveonfailure definition
- *
  * @package    Openbuildings\PHPUnitSpiderling
  * @author     Ivan Kerin
  * @copyright  (c) 2013 OpenBuildings Ltd.
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
-class Saveonfailure implements \PHPUnit\Framework\TestListener {
+class SaveOnFailure implements \PHPUnit\Framework\TestListener {
 
 	/**
 	 * Convert an attribute strigng from a relative to absolute, by providing a base_url
@@ -101,7 +98,7 @@ class Saveonfailure implements \PHPUnit\Framework\TestListener {
 			$content = self::to_absolute_attribute($attribute, $content, $this->_base_url);
 		}
 
-		$testview = self::render_file(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'error-page.php', array(
+		$testview = self::render_file(__DIR__.'/../assets/error-page.php', array(
 			'url' => $driver->current_url(),
 			'title' => $title,
 			'javascript_errors' => $driver->javascript_errors(),
@@ -127,7 +124,7 @@ class Saveonfailure implements \PHPUnit\Framework\TestListener {
 	 */
 	public function addError(\PHPUnit\Framework\Test $test, \Exception $exception, $time)
 	{
-		if ($test instanceof Testcase_Spiderling AND $test->is_driver_active() AND $test->driver()->is_page_active())
+		if ($test instanceof TestCase AND $test->is_driver_active() AND $test->driver()->is_page_active())
 		{
 			$this->save_driver_content(
 				$test->driver(),
@@ -145,7 +142,7 @@ class Saveonfailure implements \PHPUnit\Framework\TestListener {
 	 */
 	public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $failure, $time)
 	{
-		if ($test instanceof Testcase_Spiderling AND $test->is_driver_active() AND $test->driver()->is_page_active())
+		if ($test instanceof TestCase AND $test->is_driver_active() AND $test->driver()->is_page_active())
 		{
 
 			$this->save_driver_content(

@@ -1,7 +1,9 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Constraint_Locator_Negative;
+namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\Constraint\NegativeLocatorConstraint;
 
 /**
  * Functest_TestsTest
@@ -14,14 +16,14 @@ use Openbuildings\PHPUnitSpiderling\Constraint_Locator_Negative;
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class Constraint_Locator_NegativeTest extends Testcase_Spiderling {
+class NegativeLocatorConstraintTest extends TestCase {
 
 	/**
 	 * @driver simple
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../../index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 
 		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
 			->setMethods(array('not_present'))
@@ -44,7 +46,7 @@ class Constraint_Locator_NegativeTest extends Testcase_Spiderling {
 			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
 			->will($this->throwException($exception));
 
-		$locator = new Constraint_Locator_Negative('css', '.test', array('filter name' => 'filter'));
+		$locator = new NegativeLocatorConstraint('css', '.test', array('filter name' => 'filter'));
 
 		$this->assertTrue($locator->evaluate($other, '', TRUE));
 

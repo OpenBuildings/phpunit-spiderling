@@ -18,6 +18,9 @@
         "se/selenium-server-standalone": "~2.43.0"
     },
     "autoload": {
-        "psr-0": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}
+        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\Test\\": "tests/"}
     }
 }

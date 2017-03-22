@@ -1,7 +1,9 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Saveonfailure;
+namespace Openbuildings\PHPUnitSpiderling\Test;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\SaveOnFailure;
 
 /**
  * @group saveonfailure
@@ -10,7 +12,7 @@ use Openbuildings\PHPUnitSpiderling\Saveonfailure;
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class SaveonfailureTest extends Testcase_Spiderling {
+class SaveOnFailureTest extends TestCase {
 
 	public function data_to_absolute_attribute()
 	{
@@ -30,7 +32,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_to_absolute_attribute($attribute, $content, $base_url, $expceted)
 	{
-		$converted = Saveonfailure::to_absolute_attribute($attribute, $content, $base_url);
+		$converted = SaveOnFailure::to_absolute_attribute($attribute, $content, $base_url);
 
 		$this->assertEquals($expceted, $converted);
 	}
@@ -43,7 +45,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 		$failure = $this->getMockBuilder('PHPUnit\Framework\AssertionFailedError')->getMock();
 		$error = $this->getMockBuilder('Exception')->getMock();
 
-		$listener = $this->getMockBuilder('Openbuildings\PHPUnitSpiderling\Saveonfailure')
+		$listener = $this->getMockBuilder('Openbuildings\PHPUnitSpiderling\SaveOnFailure')
 			->setMethods(array('save_driver_content'))
 			->setMockClassName('Saveonfailure_Test')
 			->disableOriginalConstructor()
@@ -52,7 +54,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 		$listener
 			->expects($this->exactly(2))
 			->method('save_driver_content')
-			->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo('SaveonfailureTest_test_add_error_and_failure'), $this->equalTo(''));
+			->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo(self::class.'_test_add_error_and_failure'), $this->equalTo(''));
 
 		// This should not produce a save_driver_content as there is no loaded content
 		$listener->addError($this, $error, time());

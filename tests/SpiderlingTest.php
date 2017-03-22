@@ -1,6 +1,8 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+namespace Openbuildings\PHPUnitSpiderling\Test;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\Spiderling\Driver_Kohana;
 use Openbuildings\Spiderling\Driver_Phantomjs;
 use Openbuildings\Spiderling\Driver_Phantomjs_Connection;
@@ -12,7 +14,7 @@ use Openbuildings\Spiderling\Driver_Simple;
  * @group   functest
  * @group   functest.spiderling
  */
-class SpiderlingTest extends Testcase_Spiderling {
+class SpiderlingTest extends TestCase {
 
 	const BASE_URL = 'http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com';
 	const PAGE = '/index.html';
