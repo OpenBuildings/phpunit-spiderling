@@ -21,7 +21,7 @@ abstract class Assert {
 	 */
 	public static function assertHasCss($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator('css', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator('css', $selector, $filters), $message);
 	}
 
 	/**
@@ -33,7 +33,7 @@ abstract class Assert {
 	 */
 	public static function assertHasNoCss($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator_Negative('css', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator_Negative('css', $selector, $filters), $message);
 	}
 
 	/**
@@ -45,7 +45,7 @@ abstract class Assert {
 	 */
 	public static function assertHasField($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator('field', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator('field', $selector, $filters), $message);
 	}
 
 	/**
@@ -57,7 +57,7 @@ abstract class Assert {
 	 */
 	public static function assertHasNoField($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator_Negative('field', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator_Negative('field', $selector, $filters), $message);
 	}
 
 	/**
@@ -69,7 +69,7 @@ abstract class Assert {
 	 */
 	public static function assertHasXPath($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator('xpath', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator('xpath', $selector, $filters), $message);
 	}
 
 	/**
@@ -81,7 +81,7 @@ abstract class Assert {
 	 */
 	public static function assertHasNoXPath($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator_Negative('xpath', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator_Negative('xpath', $selector, $filters), $message);
 	}
 
 	/**
@@ -93,7 +93,7 @@ abstract class Assert {
 	 */
 	public static function assertHasLink($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator('link', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator('link', $selector, $filters), $message);
 	}
 
 	/**
@@ -105,7 +105,7 @@ abstract class Assert {
 	 */
 	public static function assertHasNoLink($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator_Negative('link', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator_Negative('link', $selector, $filters), $message);
 	}
 
 	/**
@@ -117,7 +117,7 @@ abstract class Assert {
 	 */
 	public static function assertHasButton($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator('button', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator('button', $selector, $filters), $message);
 	}
 
 	/**
@@ -129,7 +129,7 @@ abstract class Assert {
 	 */
 	public static function assertHasNoButton($node, $selector, array $filters = array(), $message = NULL)
 	{
-		return \PHPUnit_Framework_Assert::assertThat($node, new Constraint_Locator_Negative('button', $selector, $filters), $message);
+		return \PHPUnit\Framework\Assert::assertThat($node, new Constraint_Locator_Negative('button', $selector, $filters), $message);
 	}
 
 }

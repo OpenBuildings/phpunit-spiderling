@@ -40,7 +40,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_add_error_and_failure()
 	{
-		$failure = $this->getMockBuilder('PHPUnit_Framework_AssertionFailedError')->getMock();
+		$failure = $this->getMockBuilder('PHPUnit\Framework\AssertionFailedError')->getMock();
 		$error = $this->getMockBuilder('Exception')->getMock();
 
 		$listener = $this->getMockBuilder('Openbuildings\PHPUnitSpiderling\Saveonfailure')

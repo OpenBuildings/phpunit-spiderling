@@ -5,14 +5,14 @@ namespace Openbuildings\PHPUnitSpiderling;
 use Openbuildings\Spiderling\Exception_Found;
 
 /**
- * Phpunit_Framework_Constraint_Negative_Locator definition
+ * Constraint_Locator_Negative definition
  *
  * @package    Openbuildings\PHPUnitSpiderling
  * @author     Ivan Kerin
  * @copyright  (c) 2013 OpenBuildings Ltd.
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
-class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
+class Constraint_Locator_Negative extends \PHPUnit\Framework\Constraint\Constraint {
 
 	protected $_type;
 	protected $_selector;

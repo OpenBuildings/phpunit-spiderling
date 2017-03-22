@@ -12,7 +12,7 @@ use Openbuildings\Spiderling\Exception_Notfound;
  * @copyright  (c) 2013 OpenBuildings Ltd.
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
-class Constraint_Locator extends \PHPUnit_Framework_Constraint {
+class Constraint_Locator extends \PHPUnit\Framework\Constraint\Constraint {
 
 	protected $_type;
 	protected $_selector;
