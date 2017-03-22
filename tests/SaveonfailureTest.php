@@ -5,9 +5,6 @@ namespace Openbuildings\PHPUnitSpiderling\Test;
 use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\SaveOnFailure;
 
-/**
- * @group saveonfailure
- */
 class SaveOnFailureTest extends TestCase {
 
 	public function data_to_absolute_attribute()

@@ -6,9 +6,7 @@ use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\Constraint\LocatorConstraint;
 
 /**
- * @group functest
- * @group functest.locator
- * @group functest.locator.negative
+ * @group constraint
  */
 class LocatorConstraintTest extends TestCase {
 
