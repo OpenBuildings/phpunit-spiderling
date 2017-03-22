@@ -1,32 +1,32 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Constraint_Locator_Negative;
+namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\Constraint\NegativeLocatorConstraint;
 
 /**
- * Functest_TestsTest
- *
- * @group functest
- * @group functest.locator
- * @group functest.locator.negative
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
+ * @group constraint
  */
-class Constraint_Locator_NegativeTest extends Testcase_Spiderling {
+class NegativeLocatorConstraintTest extends TestCase {
 
 	/**
 	 * @driver simple
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../../../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 
-		$other = $this->getMock('OpenBuildings\Spiderling\Node', array('not_present'), array($this->driver()));
+		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
+			->setMethods(array('not_present'))
+			->setConstructorArgs(array($this->driver()))
+			->getMock();
 		$node1 = $this->find('#navlink-1');
 
-		$exception = $this->getMock('Openbuildings\Spiderling\Exception_Found', NULL, array(), 'Exception_Found_Test', FALSE);
+		$exception = $this->getMockBuilder('Openbuildings\Spiderling\Exception_Found')
+			->setMockClassName('Exception_Found_Test')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$other->expects($this->at(0))
 			->method('not_present')
@@ -38,7 +38,7 @@ class Constraint_Locator_NegativeTest extends Testcase_Spiderling {
 			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
 			->will($this->throwException($exception));
 
-		$locator = new Constraint_Locator_Negative('css', '.test', array('filter name' => 'filter'));
+		$locator = new NegativeLocatorConstraint('css', '.test', array('filter name' => 'filter'));
 
 		$this->assertTrue($locator->evaluate($other, '', TRUE));
 

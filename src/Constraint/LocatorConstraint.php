@@ -1,18 +1,10 @@
 <?php
 
-namespace Openbuildings\PHPUnitSpiderling;
+namespace Openbuildings\PHPUnitSpiderling\Constraint;
 
-use Openbuildings\Spiderling\Exception_Found;
+use Openbuildings\Spiderling\Exception_Notfound;
 
-/**
- * Phpunit_Framework_Constraint_Negative_Locator definition
- *
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
- */
-class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
+class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint {
 
 	protected $_type;
 	protected $_selector;
@@ -29,10 +21,10 @@ class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
 	{
 		try
 		{
-			$other->not_present(array($this->_type, $this->_selector, $this->_filters));
+			$other->find(array($this->_type, $this->_selector, $this->_filters));
 			return TRUE;
 		}
-		catch (Exception_Found $excption)
+		catch (Exception_Notfound $excption)
 		{
 			return FALSE;
 		}
@@ -68,6 +60,6 @@ class Constraint_Locator_Negative extends \PHPUnit_Framework_Constraint {
 	 */
 	public function toString()
 	{
-		return "does not have '{$this->_type}' selector '{$this->_selector}', filter ".json_encode($this->_filters);
+		return "has '{$this->_type}' selector '{$this->_selector}', filter ".json_encode($this->_filters);
 	}
 }

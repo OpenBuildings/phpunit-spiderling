@@ -1,16 +1,11 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Saveonfailure;
+namespace Openbuildings\PHPUnitSpiderling\Test;
 
-/**
- * @group saveonfailure
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
- */
-class SaveonfailureTest extends Testcase_Spiderling {
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\SaveOnFailure;
+
+class SaveOnFailureTest extends TestCase {
 
 	public function data_to_absolute_attribute()
 	{
@@ -30,7 +25,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_to_absolute_attribute($attribute, $content, $base_url, $expceted)
 	{
-		$converted = Saveonfailure::to_absolute_attribute($attribute, $content, $base_url);
+		$converted = SaveOnFailure::to_absolute_attribute($attribute, $content, $base_url);
 
 		$this->assertEquals($expceted, $converted);
 	}
@@ -40,15 +35,19 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_add_error_and_failure()
 	{
-		$failure = $this->getMock('PHPUnit_Framework_AssertionFailedError');
-		$error = $this->getMock('Exception');
+		$failure = $this->getMockBuilder('PHPUnit\Framework\AssertionFailedError')->getMock();
+		$error = $this->getMockBuilder('Exception')->getMock();
 
-		$listener = $this->getMock('Openbuildings\PHPUnitSpiderling\Saveonfailure', array('save_driver_content'), array(), 'Saveonfailure_Test', FALSE);
+		$listener = $this->getMockBuilder('Openbuildings\PHPUnitSpiderling\SaveOnFailure')
+			->setMethods(array('save_driver_content'))
+			->setMockClassName('Saveonfailure_Test')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$listener
 			->expects($this->exactly(2))
 			->method('save_driver_content')
-			->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo('SaveonfailureTest_test_add_error_and_failure'), $this->equalTo(''));
+			->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo(self::class.'_test_add_error_and_failure'), $this->equalTo(''));
 
 		// This should not produce a save_driver_content as there is no loaded content
 		$listener->addError($this, $error, time());
@@ -63,7 +62,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 	public function test_autocreate_directory()
 	{
-		$dir = __DIR__.'/../testdata/test_autocreated_dir';
+		$dir = __DIR__.'/test_autocreated_dir';
 		$this->assertFalse(is_dir($dir));
 
 		Saveonfailure::autocreate_directory($dir);
@@ -76,7 +75,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 	public function test_clear_directory()
 	{
-		$dir = __DIR__.'/../testdata/test_clear_dir/';
+		$dir = __DIR__.'/test_clear_dir/';
 		mkdir($dir);
 		file_put_contents($dir.'test_file.html', 'test');
 		file_put_contents($dir.'test_file2.html', 'test');
@@ -94,7 +93,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 	 */
 	public function test_save_driver_content()
 	{
-		$dir = __DIR__.'/../testdata/test_save/';
+		$dir = __DIR__.'/save-on-failure/';
 		$listener = new Saveonfailure($dir, 'http://example.com');
 
 		$content = <<<CONTENT
@@ -107,7 +106,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 CONTENT;
 
-		$driver = $this->getMock('Openbuildings\Spiderling\Driver_Simple');
+		$driver = $this->getMockBuilder('Openbuildings\Spiderling\Driver_Simple')->getMock();
 
 		$driver
 			->expects($this->once())
@@ -132,6 +131,6 @@ CONTENT;
 
 		$listener->save_driver_content($driver, 'filename', 'Test Title');
 
-		$this->assertFileEquals($dir.'../expected.html', $dir.'filename.html');
+		$this->assertFileEquals(__DIR__.'/expected.html', $dir.'filename.html');
 	}
 }

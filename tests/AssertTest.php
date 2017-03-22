@@ -1,23 +1,21 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+namespace Openbuildings\PHPUnitSpiderling\Test;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\Assert;
 
 /**
  * @group assert
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class AssertTest extends Testcase_Spiderling {
+class AssertTest extends TestCase {
 
 	/**
 	 * @driver simple
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/index.html'));
 
 		Assert::assertHasCss($this->page(), '#navlink-1', array('text' => 'Subpage 1'));
 		Assert::assertHasNoCss($this->page(), '#navlink-111', array('text' => 'Subpage 1'));

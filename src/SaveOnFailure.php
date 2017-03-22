@@ -2,16 +2,7 @@
 
 namespace Openbuildings\PHPUnitSpiderling;
 
-
-/**
- * Phpunit_Saveonfailure definition
- *
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
- */
-class Saveonfailure implements \PHPUnit_Framework_TestListener {
+class SaveOnFailure implements \PHPUnit\Framework\TestListener {
 
 	/**
 	 * Convert an attribute strigng from a relative to absolute, by providing a base_url
@@ -76,8 +67,9 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 
 	function __construct($directory, $base_url)
 	{
-		if ( ! $directory)
-			throw new Exception('You must set a directory to output errors to');
+		if ( ! $directory) {
+			throw new \Exception('You must set a directory to output errors to');
+		}
 
 		$this->_directory = rtrim($directory, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$this->_base_url = $base_url;
@@ -101,7 +93,7 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 			$content = self::to_absolute_attribute($attribute, $content, $this->_base_url);
 		}
 
-		$testview = self::render_file(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'error-page.php', array(
+		$testview = self::render_file(__DIR__.'/../assets/error-page.php', array(
 			'url' => $driver->current_url(),
 			'title' => $title,
 			'javascript_errors' => $driver->javascript_errors(),
@@ -120,14 +112,14 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 	}
 
 	/**
-	 * Implement PHPUnit_Framework_TestListener, save driver content if there was an error
-	 * @param \PHPUnit_Framework_Test $test
+	 * Implement PHPUnit\Framework\TestListener, save driver content if there was an error
+	 * @param \PHPUnit\Framework\Test $test
 	 * @param \Exception              $exception
 	 * @param integer                  $time
 	 */
-	public function addError(\PHPUnit_Framework_Test $test, \Exception $exception, $time)
+	public function addError(\PHPUnit\Framework\Test $test, \Exception $exception, $time)
 	{
-		if ($test instanceof Testcase_Spiderling AND $test->is_driver_active() AND $test->driver()->is_page_active())
+		if ($test instanceof TestCase AND $test->is_driver_active() AND $test->driver()->is_page_active())
 		{
 			$this->save_driver_content(
 				$test->driver(),
@@ -138,14 +130,14 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 	}
 
 	/**
-	 * Implement PHPUnit_Framework_TestListener, save driver content if there was an error
-	 * @param \PHPUnit_Framework_Test                 $test
-	 * @param \PHPUnit_Framework_AssertionFailedError $failure
+	 * Implement PHPUnit\Framework\TestListener, save driver content if there was an error
+	 * @param \PHPUnit\Framework\Test                 $test
+	 * @param \PHPUnit\Framework\AssertionFailedError $failure
 	 * @param integer                                 $time
 	 */
-	public function addFailure(\PHPUnit_Framework_Test $test, \PHPUnit_Framework_AssertionFailedError $failure, $time)
+	public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $failure, $time)
 	{
-		if ($test instanceof Testcase_Spiderling AND $test->is_driver_active() AND $test->driver()->is_page_active())
+		if ($test instanceof TestCase AND $test->is_driver_active() AND $test->driver()->is_page_active())
 		{
 
 			$this->save_driver_content(
@@ -156,26 +148,14 @@ class Saveonfailure implements \PHPUnit_Framework_TestListener {
 		}
 	}
 
-
-	/**
-	 * Risky test.
-	 *
-	 * @param PHPUnit_Framework_Test $test
-	 * @param Exception              $e
-	 * @param float                  $time
-	 * @since  Method available since Release 3.8.0
-	 */
-	public function addRiskyTest(\PHPUnit_Framework_Test $test, \Exception $e, $time)
-	{
-		// Stub out to support PHPUnit 3.8
-	}
-
 	// @codeCoverageIgnoreStart
-	public function addIncompleteTest(\PHPUnit_Framework_Test $test, \Exception $e, $time) {}
-	public function addSkippedTest(\PHPUnit_Framework_Test $test, \Exception $e, $time) {}
-	public function startTest(\PHPUnit_Framework_Test $test) {}
-	public function endTest(\PHPUnit_Framework_Test $test, $time) {}
-	public function startTestSuite(\PHPUnit_Framework_TestSuite $suite) {}
-	public function endTestSuite(\PHPUnit_Framework_TestSuite $suite) {}
+	public function addWarning(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\Warning $e, $time) {}
+	public function addRiskyTest(\PHPUnit\Framework\Test $test, \Exception $e, $time) {}
+	public function addIncompleteTest(\PHPUnit\Framework\Test $test, \Exception $e, $time) {}
+	public function addSkippedTest(\PHPUnit\Framework\Test $test, \Exception $e, $time) {}
+	public function startTest(\PHPUnit\Framework\Test $test) {}
+	public function endTest(\PHPUnit\Framework\Test $test, $time) {}
+	public function startTestSuite(\PHPUnit\Framework\TestSuite $suite) {}
+	public function endTestSuite(\PHPUnit\Framework\TestSuite $suite) {}
 	// @codeCoverageIgnoreEnd
 }

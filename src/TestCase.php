@@ -3,14 +3,9 @@
 namespace Openbuildings\PHPUnitSpiderling;
 
 /**
- * Base Testcase
- *
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
+ * Base TestCase
  */
-abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
+abstract class TestCase extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * Holds drivers fixtures
@@ -20,7 +15,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Current Driver for this testcase
-	 * @var Openbuildings\Spiderling\Driver
+	 * @var \Openbuildings\Spiderling\Driver
 	 */
 	protected $_driver;
 
@@ -32,7 +27,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * The Environment object making sure you can set env variables and restore them after the test
-	 * @var Openbuildings\EnvironmentBackup\Environment
+	 * @var \Openbuildings\EnvironmentBackup\Environment
 	 */
 	protected $_environment;
 
@@ -59,7 +54,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * You can override them yourself in order to have custom configs
 	 *
 	 * Drivers are cached as fixtured for the whole testrun and is shared between tests.
-	 * @return Openbuildings\Spiderling\Driver
+	 * @return \Openbuildings\Spiderling\Driver
 	 */
 	public function driver()
 	{
@@ -109,7 +104,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * Return Openbuildings\Spiderling\Driver_Simple
 	 * override this to configure
 	 *
-	 * @return Openbuildings\Spiderling\Driver_Simple
+	 * @return \Openbuildings\Spiderling\Driver_Simple
 	 */
 	public function driver_simple()
 	{
@@ -120,7 +115,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * Return Openbuildings\Spiderling\Driver_SimpleXML
 	 * override this to configure
 	 *
-	 * @return Openbuildings\Spiderling\Driver_SimpleXML
+	 * @return \Openbuildings\Spiderling\Driver_SimpleXML
 	 */
 	public function driver_simple_xml()
 	{
@@ -131,7 +126,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * Return Openbuildings\Spiderling\Driver_Kohana
 	 * override this to configure
 	 *
-	 * @return Openbuildings\Spiderling\Driver_Kohana
+	 * @return \Openbuildings\Spiderling\Driver_Kohana
 	 */
 	public function driver_kohana()
 	{
@@ -142,7 +137,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * Return Openbuildings\Spiderling\Driver_Selenium
 	 * override this to configure
 	 *
-	 * @return Openbuildings\Spiderling\Driver_Selenium
+	 * @return \Openbuildings\Spiderling\Driver_Selenium
 	 */
 	public function driver_selenium()
 	{
@@ -153,7 +148,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	 * Return Openbuildings\Spiderling\Driver_Phantomjs
 	 * override this to configure
 	 *
-	 * @return Openbuildings\Spiderling\Driver_Phantomjs
+	 * @return \Openbuildings\Spiderling\Driver_Phantomjs
 	 */
 	public function driver_phantomjs()
 	{
@@ -180,7 +175,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * return the environment object that handles setting / restoring env variables
-	 * @return Openbuildings\EnvrionmentBackup\Envrionment
+	 * @return \Openbuildings\EnvironmentBackup\Environment
 	 */
 	public function environment()
 	{
@@ -197,7 +192,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Return true if the driver has been invoked in some way
-	 * @return boolean
+	 * @return bool
 	 */
 	public function is_driver_active()
 	{
@@ -206,7 +201,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Return true if the environment has been modified / accessed
-	 * @return boolean
+	 * @return bool
 	 */
 	public function is_environment_active()
 	{
@@ -216,7 +211,7 @@ abstract class Testcase_Spiderling extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Return the root node of the current page, opened by the driver
 	 * Extend it with custom assertions from Assert
-	 * @return Openbuildings\Spiderling\Page
+	 * @return \Openbuildings\Spiderling\Page
 	 */
 	public function page()
 	{

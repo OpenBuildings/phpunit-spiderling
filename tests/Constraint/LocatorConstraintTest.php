@@ -1,32 +1,32 @@
 <?php
 
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
-use Openbuildings\PHPUnitSpiderling\Constraint_Locator;
+namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
+
+use Openbuildings\PHPUnitSpiderling\TestCase;
+use Openbuildings\PHPUnitSpiderling\Constraint\LocatorConstraint;
 
 /**
- * Functest_TestsTest
- *
- * @group functest
- * @group functest.locator
- * @group functest.locator.negative
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
+ * @group constraint
  */
-class Constraint_LocatorTest extends Testcase_Spiderling {
+class LocatorConstraintTest extends TestCase {
 
 	/**
 	 * @driver simple
 	 */
 	public function test_assert_has_css()
 	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../../testdata/index.html'));
+		$this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 
-		$other = $this->getMock('OpenBuildings\Spiderling\Node', array('find'), array($this->driver()));
+		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
+			->setMethods(array('find'))
+			->setConstructorArgs(array($this->driver()))
+			->getMock();
 		$node1 = $this->find('#navlink-1');
 
-		$exception = $this->getMock('Openbuildings\Spiderling\Exception_Notfound', NULL, array(), 'Exception_Notfound_Test', FALSE);
+		$exception = $this->getMockBuilder('Openbuildings\Spiderling\Exception_Notfound')
+			->setMockClassName('Exception_Notfound_Test')
+			->disableOriginalConstructor()
+			->getMock();
 
 		$other->expects($this->at(0))
 			->method('find')
@@ -38,7 +38,7 @@ class Constraint_LocatorTest extends Testcase_Spiderling {
 			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
 			->will($this->throwException($exception));
 
-		$locator = new Constraint_Locator('css', '.test', array('filter name' => 'filter'));
+		$locator = new LocatorConstraint('css', '.test', array('filter name' => 'filter'));
 
 		$this->assertTrue($locator->evaluate($other, '', TRUE));
 
