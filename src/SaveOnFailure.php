@@ -67,8 +67,9 @@ class SaveOnFailure implements \PHPUnit\Framework\TestListener {
 
 	function __construct($directory, $base_url)
 	{
-		if ( ! $directory)
-			throw new Exception('You must set a directory to output errors to');
+		if ( ! $directory) {
+			throw new \Exception('You must set a directory to output errors to');
+		}
 
 		$this->_directory = rtrim($directory, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$this->_base_url = $base_url;
