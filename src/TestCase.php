@@ -4,11 +4,6 @@ namespace Openbuildings\PHPUnitSpiderling;
 
 /**
  * Base TestCase
- *
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 abstract class TestCase extends \PHPUnit\Framework\TestCase {
 

@@ -4,11 +4,6 @@ namespace Openbuildings\PHPUnitSpiderling;
 
 /**
  * Assertions
- *
- * @package    Openbuildings/PHPUNitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2012 OpenBuildings Ltd.
- * @license    http://www.opensource.org/licenses/isc-license.txt
  */
 abstract class Assert {
 

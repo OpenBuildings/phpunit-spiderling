@@ -7,10 +7,6 @@ use Openbuildings\PHPUnitSpiderling\SaveOnFailure;
 
 /**
  * @group saveonfailure
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
  */
 class SaveOnFailureTest extends TestCase {
 

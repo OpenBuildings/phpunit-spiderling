@@ -10,7 +10,6 @@ use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Simple;
 
 /**
- * @package Functest
  * @group   functest
  * @group   functest.spiderling
  */

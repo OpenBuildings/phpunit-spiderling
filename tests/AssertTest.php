@@ -7,10 +7,6 @@ use Openbuildings\PHPUnitSpiderling\Assert;
 
 /**
  * @group assert
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
  */
 class AssertTest extends TestCase {
 

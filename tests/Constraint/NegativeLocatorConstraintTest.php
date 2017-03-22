@@ -6,15 +6,9 @@ use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\Constraint\NegativeLocatorConstraint;
 
 /**
- * Functest_TestsTest
- *
  * @group functest
  * @group functest.locator
  * @group functest.locator.negative
- *
- * @package Functest
- * @author Ivan Kerin
- * @copyright  (c) 2011-2013 Despark Ltd.
  */
 class NegativeLocatorConstraintTest extends TestCase {
 

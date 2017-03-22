@@ -2,12 +2,6 @@
 
 namespace Openbuildings\PHPUnitSpiderling;
 
-/**
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
- */
 class SaveOnFailure implements \PHPUnit\Framework\TestListener {
 
 	/**

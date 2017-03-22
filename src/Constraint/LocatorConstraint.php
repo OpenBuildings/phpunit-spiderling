@@ -4,14 +4,6 @@ namespace Openbuildings\PHPUnitSpiderling\Constraint;
 
 use Openbuildings\Spiderling\Exception_Notfound;
 
-/**
- * LocatorConstraint definition
- *
- * @package    Openbuildings\PHPUnitSpiderling
- * @author     Ivan Kerin
- * @copyright  (c) 2013 OpenBuildings Ltd.
- * @license    http://spdx.org/licenses/BSD-3-Clause
- */
 class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint {
 
 	protected $_type;
