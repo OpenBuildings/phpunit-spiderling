@@ -67,7 +67,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 	public function test_autocreate_directory()
 	{
-		$dir = __DIR__.'/../testdata/test_autocreated_dir';
+		$dir = __DIR__.'/test_autocreated_dir';
 		$this->assertFalse(is_dir($dir));
 
 		Saveonfailure::autocreate_directory($dir);
@@ -80,7 +80,7 @@ class SaveonfailureTest extends Testcase_Spiderling {
 
 	public function test_clear_directory()
 	{
-		$dir = __DIR__.'/../testdata/test_clear_dir/';
+		$dir = __DIR__.'/test_clear_dir/';
 		mkdir($dir);
 		file_put_contents($dir.'test_file.html', 'test');
 		file_put_contents($dir.'test_file2.html', 'test');
