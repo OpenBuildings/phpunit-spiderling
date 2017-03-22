@@ -2,6 +2,18 @@
 
 namespace Openbuildings\PHPUnitSpiderling;
 
+use Openbuildings\EnvironmentBackup\Environment;
+use Openbuildings\EnvironmentBackup\Environment_Group_Globals;
+use Openbuildings\EnvironmentBackup\Environment_Group_Server;
+use Openbuildings\EnvironmentBackup\Environment_Group_Static;
+use Openbuildings\Spiderling\Driver;
+use Openbuildings\Spiderling\Driver_Kohana;
+use Openbuildings\Spiderling\Driver_Phantomjs;
+use Openbuildings\Spiderling\Driver_Selenium;
+use Openbuildings\Spiderling\Driver_Simple;
+use Openbuildings\Spiderling\Driver_SimpleXML;
+use Openbuildings\Spiderling\Page;
+
 /**
  * Base TestCase.
  */
@@ -17,7 +29,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Current Driver for this testcase.
      *
-     * @var \Openbuildings\Spiderling\Driver
+     * @var Driver
      */
     protected $_driver;
 
@@ -56,110 +68,52 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      * You can override them yourself in order to have custom configs.
      *
      * Drivers are cached as fixtured for the whole testrun and is shared between tests.
-     *
-     * @return \Openbuildings\Spiderling\Driver
      */
-    public function driver()
+    public function driver(): Driver
     {
         if (!$this->_driver) {
             $type = $this->driver_type();
 
-            if (isset(self::$_drivers[$type])) {
-                $this->_driver = self::$_drivers[$type];
-            } else {
-                switch ($type) {
-                    case 'simple':
-                        $driver = $this->driver_simple();
-                    break;
-
-                    case 'simplexml':
-                        $driver = $this->driver_simple_xml();
-                    break;
-
-                    case 'kohana':
-                        $driver = $this->driver_kohana();
-                    break;
-
-                    case 'phantomjs':
-                        $driver = $this->driver_phantomjs();
-                    break;
-
-                    case 'selenium':
-                        $driver = $this->driver_selenium();
-                    break;
-
-                    default:
-                        throw new \Exception("Driver '{$type}' does not exist");
-                }
-                $this->_driver = self::$_drivers[$type] = $driver;
+            if (!isset(self::$_drivers[$type])) {
+                self::$_drivers[$type] = $this->getDriverFromType($type);
             }
+
+            $this->_driver = self::$_drivers[$type];
         }
 
         return $this->_driver;
     }
 
-    /**
-     * Return Openbuildings\Spiderling\Driver_Simple
-     * override this to configure.
-     *
-     * @return \Openbuildings\Spiderling\Driver_Simple
-     */
-    public function driver_simple()
+    public function driver_simple(): Driver_Simple
     {
-        return new \Openbuildings\Spiderling\Driver_Simple();
+        return new Driver_Simple();
     }
 
-    /**
-     * Return Openbuildings\Spiderling\Driver_SimpleXML
-     * override this to configure.
-     *
-     * @return \Openbuildings\Spiderling\Driver_SimpleXML
-     */
-    public function driver_simple_xml()
+    public function driver_simple_xml(): Driver_SimpleXML
     {
-        return new \Openbuildings\Spiderling\Driver_SimpleXML();
+        return new Driver_SimpleXML();
     }
 
-    /**
-     * Return Openbuildings\Spiderling\Driver_Kohana
-     * override this to configure.
-     *
-     * @return \Openbuildings\Spiderling\Driver_Kohana
-     */
-    public function driver_kohana()
+    public function driver_kohana(): Driver_Kohana
     {
-        return new \Openbuildings\Spiderling\Driver_Kohana();
+        return new Driver_Kohana();
     }
 
-    /**
-     * Return Openbuildings\Spiderling\Driver_Selenium
-     * override this to configure.
-     *
-     * @return \Openbuildings\Spiderling\Driver_Selenium
-     */
-    public function driver_selenium()
+    public function driver_selenium(): Driver_Selenium
     {
-        return new \Openbuildings\Spiderling\Driver_Selenium();
+        return new Driver_Selenium();
     }
 
-    /**
-     * Return Openbuildings\Spiderling\Driver_Phantomjs
-     * override this to configure.
-     *
-     * @return \Openbuildings\Spiderling\Driver_Phantomjs
-     */
-    public function driver_phantomjs()
+    public function driver_phantomjs(): Driver_Phantomjs
     {
-        return new \Openbuildings\Spiderling\Driver_Phantomjs();
+        return new Driver_Phantomjs();
     }
 
     /**
      * Get the type of the driver for the current test.
      * Use annotations to change the driver type e.g. @driver selenium.
-     *
-     * @return string
      */
-    public function driver_type()
+    public function driver_type(): string
     {
         if ($this->_driver_type === null) {
             $annotations = $this->getAnnotations();
@@ -171,17 +125,15 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * return the environment object that handles setting / restoring env variables.
-     *
-     * @return \Openbuildings\EnvironmentBackup\Environment
+     * Return the environment object that handles setting / restoring env variables.
      */
-    public function environment()
+    public function environment(): Environment
     {
         if ($this->_environment === null) {
-            $this->_environment = new \Openbuildings\EnvironmentBackup\Environment([
-                'globals' => new \Openbuildings\EnvironmentBackup\Environment_Group_Globals(),
-                'server' => new \Openbuildings\EnvironmentBackup\Environment_Group_Server(),
-                'static' => new \Openbuildings\EnvironmentBackup\Environment_Group_Static(),
+            $this->_environment = new Environment([
+                'globals' => new Environment_Group_Globals(),
+                'server' => new Environment_Group_Server(),
+                'static' => new Environment_Group_Static(),
             ]);
         }
 
@@ -190,20 +142,16 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * Return true if the driver has been invoked in some way.
-     *
-     * @return bool
      */
-    public function is_driver_active()
+    public function is_driver_active(): bool
     {
         return (bool) $this->_driver;
     }
 
     /**
      * Return true if the environment has been modified / accessed.
-     *
-     * @return bool
      */
-    public function is_environment_active()
+    public function is_environment_active(): bool
     {
         return (bool) $this->_environment;
     }
@@ -211,10 +159,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Return the root node of the current page, opened by the driver
      * Extend it with custom assertions from Assert.
-     *
-     * @return \Openbuildings\Spiderling\Page
      */
-    public function page()
+    public function page(): Page
     {
         $page = $this->driver()->page();
         $page->extension('Openbuildings\PHPUnitSpiderling\Assert');
@@ -233,5 +179,28 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     public function __call($method, $args)
     {
         return call_user_func_array([$this->page(), $method], $args);
+    }
+
+    private function getDriverFromType(string $type): Driver
+    {
+        switch ($type) {
+            case 'simple':
+                return $this->driver_simple();
+
+            case 'simplexml':
+                return $this->driver_simple_xml();
+
+            case 'kohana':
+                return $this->driver_kohana();
+
+            case 'phantomjs':
+                return $this->driver_phantomjs();
+
+            case 'selenium':
+                return $this->driver_selenium();
+
+            default:
+                throw new \Exception("Driver '{$type}' does not exist");
+        }
     }
 }

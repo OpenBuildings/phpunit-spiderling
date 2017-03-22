@@ -13,12 +13,12 @@ class SpiderlingTest extends TestCase
     const BASE_URL = 'http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com';
     const PAGE = '/index.html';
 
-    public function driver_phantomjs()
+    public function driver_phantomjs(): Driver_Phantomjs
     {
         return parent::driver_phantomjs()->base_url(self::BASE_URL);
     }
 
-    public function driver_selenium()
+    public function driver_selenium(): Driver_Selenium
     {
         return parent::driver_selenium()->base_url(self::BASE_URL);
     }
