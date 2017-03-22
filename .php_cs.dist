@@ -1,0 +1,68 @@
+<?php
+
+namespace Clippings;
+
+use PhpCsFixer\Config;
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
+use Symfony\Component\Finder\Finder;
+
+$finder = Finder::create()
+    ->files()
+    ->name('*.php')
+    ->ignoreDotFiles(true)
+    ->ignoreUnreadableDirs(true)
+    ->ignoreVCS(true)
+    ->in([
+        'src',
+        'tests',
+    ]);
+
+return Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        'class_definition' => [
+            'singleLine' => false,
+            'singleItemSingleLine' => true,
+            'multiLineExtendsEachSingleLine' => true,
+        ],
+        '@PHP70Migration' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'combine_consecutive_unsets' => true,
+        'dir_constant' => true,
+        'ereg_to_preg' => true,
+        'is_null' => [
+            'use_yoda_style' => false,
+        ],
+        'no_php4_constructor' => true,
+        'no_short_echo_tag' => true,
+        'no_useless_return' => true,
+        'ordered_imports' => [
+            'sortAlgorithm' => OrderedImportsFixer::SORT_ALPHA,
+            'importsOrder' => [
+                OrderedImportsFixer::IMPORT_TYPE_CONST,
+                OrderedImportsFixer::IMPORT_TYPE_FUNCTION,
+                OrderedImportsFixer::IMPORT_TYPE_CLASS,
+            ],
+        ],
+        'php_unit_construct' => true,
+        'php_unit_dedicate_assert' => true,
+        'phpdoc_no_useless_inheritdoc' => true,
+        'phpdoc_order' => true,
+        'phpdoc_return_self_reference' => [
+            'this' => '$this',
+            '@this' => '$this',
+            '$self' => 'self',
+            '@self' => 'self',
+            '$static' => 'static',
+            '@static' => 'static',
+        ],
+        'random_api_migration' => true,
+        'return_type_declaration' => [
+            'space_before' => 'none',
+        ],
+        'ternary_to_null_coalescing' => true,
+    ])
+    ->setUsingCache(true)
+    ->setRiskyAllowed(true)
+    ->setFinder($finder);

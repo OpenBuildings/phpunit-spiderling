@@ -2,50 +2,50 @@
 
 namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
 
-use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\PHPUnitSpiderling\Constraint\LocatorConstraint;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 
 /**
  * @group constraint
  */
-class LocatorConstraintTest extends TestCase {
+class LocatorConstraintTest extends TestCase
+{
+    /**
+     * @driver simple
+     */
+    public function test_assert_has_css()
+    {
+        $this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 
-	/**
-	 * @driver simple
-	 */
-	public function test_assert_has_css()
-	{
-		$this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
+        $other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
+            ->setMethods(['find'])
+            ->setConstructorArgs([$this->driver()])
+            ->getMock();
+        $node1 = $this->find('#navlink-1');
 
-		$other = $this->getMockBuilder('Openbuildings\Spiderling\Node')
-			->setMethods(array('find'))
-			->setConstructorArgs(array($this->driver()))
-			->getMock();
-		$node1 = $this->find('#navlink-1');
+        $exception = $this->getMockBuilder('Openbuildings\Spiderling\Exception_Notfound')
+            ->setMockClassName('Exception_Notfound_Test')
+            ->disableOriginalConstructor()
+            ->getMock();
 
-		$exception = $this->getMockBuilder('Openbuildings\Spiderling\Exception_Notfound')
-			->setMockClassName('Exception_Notfound_Test')
-			->disableOriginalConstructor()
-			->getMock();
+        $other->expects($this->at(0))
+            ->method('find')
+            ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
+            ->will($this->returnValue(true));
 
-		$other->expects($this->at(0))
-			->method('find')
-			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
-			->will($this->returnValue(TRUE));
+        $other->expects($this->at(1))
+            ->method('find')
+            ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
+            ->will($this->throwException($exception));
 
-		$other->expects($this->at(1))
-			->method('find')
-			->with($this->equalTo(array('css', '.test', array('filter name' => 'filter'))))
-			->will($this->throwException($exception));
+        $locator = new LocatorConstraint('css', '.test', ['filter name' => 'filter']);
 
-		$locator = new LocatorConstraint('css', '.test', array('filter name' => 'filter'));
+        $this->assertTrue($locator->evaluate($other, '', true));
 
-		$this->assertTrue($locator->evaluate($other, '', TRUE));
+        $this->assertFalse($locator->evaluate($other, '', true));
 
-		$this->assertFalse($locator->evaluate($other, '', TRUE));
-
-		$this->assertEquals('has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->toString());
-		$this->assertEquals('HTML page has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($other));
-		$this->assertEquals('a#navlink-1.navlink has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($node1));
-	}
+        $this->assertEquals('has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->toString());
+        $this->assertEquals('HTML page has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($other));
+        $this->assertEquals('a#navlink-1.navlink has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($node1));
+    }
 }
