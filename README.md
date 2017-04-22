@@ -10,9 +10,9 @@ Heavily inspired by capybara [capybara](https://github.com/jnicklas/capybara). U
 Example Test:
 
 ```php
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 
-class SpiderlingTest extends Testcase_Spiderling {
+class SpiderlingTest extends TestCase {
 
 	/**
 	 * @driver phantomjs
@@ -37,7 +37,7 @@ class SpiderlingTest extends Testcase_Spiderling {
 
 ## The Testcase
 
-To use phpunit spiderling you need to write your test as "extends Testcase_Spiderling" - it will give you all of the feature as methods of the class.
+To use phpunit spiderling you need to write your test as `extends \Openbuildings\PHPUnitSpiderlingTestCase` - it will give you all of the feature as methods of the class.
 
 ### Assertions
 
@@ -59,9 +59,9 @@ All of them assert that an element is on the page (or is not) by using a specifi
 For example:
 
 ```php
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 
-class SpiderlingTest extends Testcase_Spiderling {
+class SpiderlingTest extends TestCase {
 
 	public function test_sample()
 	{
@@ -82,9 +82,9 @@ You can modify the environment only for a specific test by using the ``->environ
 Here's an example usage:
 
 ```php
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 
-class SpiderlingTest extends Testcase_Spiderling {
+class SpiderlingTest extends TestCase {
 
 	public function test_sample()
 	{
@@ -107,9 +107,9 @@ class SpiderlingTest extends Testcase_Spiderling {
 PHPUnit Spiderling uses the PHP Annotations to set up which driver to use fore each test. Heres how you do that:
 
 ```php
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 
-class SpiderlingTest extends Testcase_Spiderling {
+class SpiderlingTest extends TestCase {
 
 	/**
 	 * @driver selenium
@@ -140,11 +140,11 @@ You can have different drivers for each test, the available ones are: ``simple``
 It is recommended that you create a base TestCase class in your tests if you want to extend these methods and have your relevant class extend that class for example if we had selenium running on a different server than localhost we might do something like this:
 
 ```php
-use Openbuildings\PHPUnitSpiderling\Testcase_Spiderling;
+use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Selenium_Connection;
 
-abstract class TestCase_Selenium extends Testcase_Spiderling {
+abstract class TestCase_Selenium extends TestCase {
 
 	public function driver_selenium()
 	{
