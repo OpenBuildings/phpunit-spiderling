@@ -7,7 +7,7 @@ use Openbuildings\PHPUnitSpiderling\TestCase;
 
 class SaveOnFailureTest extends TestCase
 {
-    public function data_to_absolute_attribute()
+    public function dataToAbsoluteAttribute(): array
     {
         return [
             ['href', '<a href="/test.html?test=1">Test</a>', 'http://example.com', '<a href="http://example.com/test.html?test=1">Test</a>'],
@@ -21,9 +21,9 @@ class SaveOnFailureTest extends TestCase
     }
 
     /**
-     * @dataProvider data_to_absolute_attribute
+     * @dataProvider dataToAbsoluteAttribute
      */
-    public function test_to_absolute_attribute($attribute, $content, $base_url, $expceted)
+    public function testToAbsoluteAttribute($attribute, $content, $base_url, $expceted): void
     {
         $converted = SaveOnFailure::to_absolute_attribute($attribute, $content, $base_url);
 
@@ -33,7 +33,7 @@ class SaveOnFailureTest extends TestCase
     /**
      * @driver simple
      */
-    public function test_add_error_and_failure()
+    public function testAddErrorAndFailure(): void
     {
         $failure = $this->getMockBuilder('PHPUnit\Framework\AssertionFailedError')->getMock();
         $error = $this->getMockBuilder('Exception')->getMock();
@@ -47,7 +47,7 @@ class SaveOnFailureTest extends TestCase
         $listener
             ->expects($this->exactly(2))
             ->method('save_driver_content')
-            ->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo(self::class.'_test_add_error_and_failure'), $this->equalTo(''));
+            ->with($this->isInstanceOf('Openbuildings\Spiderling\Driver_Simple'), $this->equalTo(self::class.'_testAddErrorAndFailure'), $this->equalTo(''));
 
         // This should not produce a save_driver_content as there is no loaded content
         $listener->addError($this, $error, time());
@@ -59,7 +59,7 @@ class SaveOnFailureTest extends TestCase
         $listener->addFailure($this, $failure, time());
     }
 
-    public function test_autocreate_directory()
+    public function testAutocreateDirectory(): void
     {
         $dir = __DIR__.'/test_autocreated_dir';
         $this->assertFalse(is_dir($dir));
@@ -72,7 +72,7 @@ class SaveOnFailureTest extends TestCase
         rmdir($dir);
     }
 
-    public function test_clear_directory()
+    public function testClearDirectory(): void
     {
         $dir = __DIR__.'/test_clear_dir/';
         mkdir($dir);
@@ -90,7 +90,7 @@ class SaveOnFailureTest extends TestCase
     /**
      * @driver simple
      */
-    public function test_save_driver_content()
+    public function testSaveDriverContent(): void
     {
         $dir = __DIR__.'/save-on-failure/';
         $listener = new Saveonfailure($dir, 'http://example.com');

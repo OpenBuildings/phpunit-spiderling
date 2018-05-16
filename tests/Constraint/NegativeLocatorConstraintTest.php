@@ -14,7 +14,7 @@ class NegativeLocatorConstraintTest extends TestCase
     /**
      * @driver simple
      */
-    public function test_assert_has_css()
+    public function testAssertHasCSS(): void
     {
         $this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 

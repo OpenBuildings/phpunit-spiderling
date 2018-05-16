@@ -26,7 +26,7 @@ class SpiderlingTest extends TestCase
     /**
      * @driver simple
      */
-    public function test_simple()
+    public function testSimple(): void
     {
         $this->assertInstanceOf(Driver_Simple::class, $this->driver());
         $this->loadContentInDriver();
@@ -36,7 +36,7 @@ class SpiderlingTest extends TestCase
     /**
      * @driver kohana
      */
-    public function test_kohana()
+    public function testKohana(): void
     {
         $this->assertInstanceOf(Driver_Kohana::class, $this->driver());
         $this->loadContentInDriver();
@@ -46,7 +46,7 @@ class SpiderlingTest extends TestCase
     /**
      * @driver phantomjs
      */
-    public function test_phantomjs()
+    public function testPhantomjs(): void
     {
         $this->assertInstanceOf(Driver_Phantomjs::class, $this->driver());
         $this->visitPage();
@@ -56,7 +56,7 @@ class SpiderlingTest extends TestCase
     /**
      * @driver selenium
      */
-    public function test_selenium()
+    public function testSelenium(): void
     {
         $this->assertInstanceOf(Driver_Selenium::class, $this->driver());
         $this->visitPage();
