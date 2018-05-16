@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c4b4c030f83610dc7e12471719cd6ae",
+    "content-hash": "ad3656673df4b77b906eecdfa24bf655",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -150,16 +150,16 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.26",
+            "version": "0.2.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d"
+                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/f49536ac508fe1214d2f0407dd239eb6dec6505d",
-                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/00cec77eb7228204fda55596dee49ff1a5f14ac5",
+                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +189,7 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2016-09-29T07:05:05+00:00"
+            "time": "2018-08-30T15:17:20+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1412,25 +1412,25 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.2.6",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c"
+                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
+                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -1461,7 +1461,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2019-01-16T09:39:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2744,6 +2744,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.1"
+    },
     "platform-dev": []
 }
