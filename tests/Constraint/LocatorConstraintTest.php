@@ -4,6 +4,7 @@ namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
 
 use Openbuildings\PHPUnitSpiderling\Constraint\LocatorConstraint;
 use Openbuildings\PHPUnitSpiderling\TestCase;
+use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @group constraint
@@ -38,6 +39,11 @@ class LocatorConstraintTest extends TestCase
             ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
             ->will($this->throwException($exception));
 
+        $other->expects($this->at(2))
+            ->method('find')
+            ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
+            ->will($this->throwException($exception));
+
         $locator = new LocatorConstraint('css', '.test', ['filter name' => 'filter']);
 
         $this->assertTrue($locator->evaluate($other, '', true));
@@ -45,7 +51,23 @@ class LocatorConstraintTest extends TestCase
         $this->assertFalse($locator->evaluate($other, '', true));
 
         $this->assertEquals('has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->toString());
-        $this->assertEquals('HTML page has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($other));
-        $this->assertEquals('a#navlink-1.navlink has \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($node1));
+
+        try {
+            $locator->evaluate($other, '');
+        } catch (ExpectationFailedException $expectationFailed) {
+            $this->assertEquals(
+                'Failed asserting that HTML page has \'css\' selector \'.test\', filter {"filter name":"filter"}.',
+                $expectationFailed->getMessage()
+            );
+        }
+
+        try {
+            $locator->evaluate($node1, '');
+        } catch (ExpectationFailedException $expectationFailed) {
+            $this->assertEquals(
+                'Failed asserting that a#navlink-1.navlink has \'css\' selector \'.test\', filter {"filter name":"filter"}.',
+                $expectationFailed->getMessage()
+            );
+        }
     }
 }

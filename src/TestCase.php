@@ -13,11 +13,12 @@ use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Simple;
 use Openbuildings\Spiderling\Driver_SimpleXML;
 use Openbuildings\Spiderling\Page;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
  * Base TestCase.
  */
-abstract class TestCase extends \PHPUnit\Framework\TestCase
+abstract class TestCase extends BaseTestCase
 {
     /**
      * Holds drivers fixtures.
@@ -50,7 +51,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Restore environment and clear the specific driver if its active.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if ($this->is_driver_active()) {
             $this->driver()->clear();
@@ -115,7 +116,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function driver_type(): string
     {
-        if ($this->_driver_type === null) {
+        if (null === $this->_driver_type) {
             $annotations = $this->getAnnotations();
 
             $this->_driver_type = $annotations['method']['driver'][0] ?? false;
@@ -129,7 +130,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function environment(): Environment
     {
-        if ($this->_environment === null) {
+        if (null === $this->_environment) {
             $this->_environment = new Environment([
                 'globals' => new Environment_Group_Globals(),
                 'server' => new Environment_Group_Server(),
