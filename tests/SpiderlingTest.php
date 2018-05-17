@@ -58,6 +58,10 @@ class SpiderlingTest extends TestCase
      */
     public function testSelenium(): void
     {
+        if (@fsockopen('localhost', 4444) === false) {
+            $this->markTestSkipped('Selenium server is not running');
+        }
+
         $this->assertInstanceOf(Driver_Selenium::class, $this->driver());
         $this->visitPage();
         $this->assertContentOnPage();
