@@ -21,20 +21,21 @@ notifications:
     secure: QDE52Y7qq+PEEy6xagZ/eIJ2pd/BCCq0quN41pl+iwKXO72dlNlLINuro0Mis/dNlzMrmdwKLDBsl+r0Kkqq6L7TpnnpziVX88fBvMl4PXxkfJJwSV0fiBcXBz1hJi9E/n22gOVvO1orUBMSVTx5IDzVAEssnzABrPshoReEejw=
 
 addons:
-  firefox: "31.0"
+  firefox: latest
 
 install: composer install --no-interaction
+
+before_script:
+  - mkdir -p build/logs
+  - "DISPLAY=:99.0 xvfb-run java -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > selenium.log 2>&1 &"
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
   - vendor/bin/php-cs-fixer fix --config=.php_cs.dist --verbose --dry-run --diff --no-interaction --using-cache=no --path-mode=intersection `git diff --name-only --diff-filter=d $TRAVIS_COMMIT_RANGE`
 
-before_script:
-  - mkdir -p build/logs
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - "nohup java -jar vendor/se/selenium-server-standalone/composer/bin/selenium-server-standalone.jar > /dev/null 2> /dev/null &"
-
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+
+after_failure:
+  - cat selenium.log
