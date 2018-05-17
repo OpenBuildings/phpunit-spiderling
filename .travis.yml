@@ -21,7 +21,7 @@ notifications:
     secure: QDE52Y7qq+PEEy6xagZ/eIJ2pd/BCCq0quN41pl+iwKXO72dlNlLINuro0Mis/dNlzMrmdwKLDBsl+r0Kkqq6L7TpnnpziVX88fBvMl4PXxkfJJwSV0fiBcXBz1hJi9E/n22gOVvO1orUBMSVTx5IDzVAEssnzABrPshoReEejw=
 
 addons:
-  firefox: latest
+  firefox: "52.8.0esr"
 
 install: composer install --no-interaction
 
