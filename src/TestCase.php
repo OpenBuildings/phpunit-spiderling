@@ -116,7 +116,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function driver_type(): string
     {
-        if (null === $this->_driver_type) {
+        if ($this->_driver_type === null) {
             $annotations = $this->getAnnotations();
 
             $this->_driver_type = $annotations['method']['driver'][0] ?? false;
@@ -130,7 +130,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function environment(): Environment
     {
-        if (null === $this->_environment) {
+        if ($this->_environment === null) {
             $this->_environment = new Environment([
                 'globals' => new Environment_Group_Globals(),
                 'server' => new Environment_Group_Server(),

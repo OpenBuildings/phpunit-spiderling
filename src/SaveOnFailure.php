@@ -51,7 +51,7 @@ class SaveOnFailure implements TestListener
     public static function clear_directory($directory)
     {
         foreach (scandir($directory) as $file) {
-            if ('.' !== $file and '..' !== $file) {
+            if ($file !== '.' and $file !== '..') {
                 unlink($directory.$file);
             }
         }
