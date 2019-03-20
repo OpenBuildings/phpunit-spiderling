@@ -50,7 +50,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Restore environment and clear the specific driver if its active.
      */
-    public function tearDown()
+    protected function tearDown()
     {
         if ($this->is_driver_active()) {
             $this->driver()->clear();
