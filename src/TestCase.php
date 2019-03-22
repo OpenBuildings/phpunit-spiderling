@@ -173,7 +173,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function __call($method, $args)
     {
-        return call_user_func_array([$this->page(), $method], $args);
+        return \call_user_func_array([$this->page(), $method], $args);
     }
 
     private function getDriverFromType(string $type): Driver

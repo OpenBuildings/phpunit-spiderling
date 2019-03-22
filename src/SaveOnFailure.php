@@ -84,7 +84,7 @@ class SaveOnFailure implements TestListener
             throw new \Exception('You must set a directory to output errors to');
         }
 
-        $this->_directory = rtrim($directory, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+        $this->_directory = rtrim($directory, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
         $this->_base_url = $base_url;
 
         self::autocreate_directory($directory);
@@ -136,7 +136,7 @@ class SaveOnFailure implements TestListener
         if ($test instanceof TestCase and $test->is_driver_active() and $test->driver()->is_page_active()) {
             $this->save_driver_content(
                 $test->driver(),
-                get_class($test).'_'.$test->getName(false),
+                \get_class($test).'_'.$test->getName(false),
                 $exception->getMessage()
             );
         }
@@ -154,7 +154,7 @@ class SaveOnFailure implements TestListener
         if ($test instanceof TestCase and $test->is_driver_active() and $test->driver()->is_page_active()) {
             $this->save_driver_content(
                 $test->driver(),
-                get_class($test).'_'.$test->getName(false),
+                \get_class($test).'_'.$test->getName(false),
                 $failure->getMessage()
             );
         }
