@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad3656673df4b77b906eecdfa24bf655",
+    "content-hash": "906ad510563e53d962f8b8143399b40e",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -2072,42 +2072,6 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
-        },
-        {
-            "name": "se/selenium-server-standalone",
-            "version": "v2.43.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
-                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
-                "shasum": ""
-            },
-            "bin": [
-                "composer/bin/selenium-server-standalone"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Sven Eisenschmidt",
-                    "email": "sven.eisenschmidt@gmail.com"
-                }
-            ],
-            "description": "Composer distribution of Selenium Server Standalone, the browser automation framework. Adds a executable to your composer bin directory.",
-            "homepage": "https://github.com/sveneisenschmidt/selenium-server-standalone",
-            "keywords": [
-                "selenium",
-                "testing"
-            ],
-            "time": "2014-10-07T11:47:50+00:00"
         },
         {
             "name": "symfony/console",

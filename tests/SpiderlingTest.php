@@ -5,7 +5,6 @@ namespace Openbuildings\PHPUnitSpiderling\Test;
 use Openbuildings\PHPUnitSpiderling\TestCase;
 use Openbuildings\Spiderling\Driver_Kohana;
 use Openbuildings\Spiderling\Driver_Phantomjs;
-use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Simple;
 
 class SpiderlingTest extends TestCase
@@ -16,11 +15,6 @@ class SpiderlingTest extends TestCase
     public function driver_phantomjs(): Driver_Phantomjs
     {
         return parent::driver_phantomjs()->base_url(self::BASE_URL);
-    }
-
-    public function driver_selenium(): Driver_Selenium
-    {
-        return parent::driver_selenium()->base_url(self::BASE_URL);
     }
 
     /**
@@ -49,20 +43,6 @@ class SpiderlingTest extends TestCase
     public function testPhantomjs(): void
     {
         $this->assertInstanceOf(Driver_Phantomjs::class, $this->driver());
-        $this->visitPage();
-        $this->assertContentOnPage();
-    }
-
-    /**
-     * @driver selenium
-     */
-    public function testSelenium(): void
-    {
-        if (@fsockopen('localhost', 4444) === false) {
-            $this->markTestSkipped('Selenium server is not running');
-        }
-
-        $this->assertInstanceOf(Driver_Selenium::class, $this->driver());
         $this->visitPage();
         $this->assertContentOnPage();
     }

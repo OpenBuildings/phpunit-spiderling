@@ -20,14 +20,10 @@ notifications:
   slack:
     secure: QDE52Y7qq+PEEy6xagZ/eIJ2pd/BCCq0quN41pl+iwKXO72dlNlLINuro0Mis/dNlzMrmdwKLDBsl+r0Kkqq6L7TpnnpziVX88fBvMl4PXxkfJJwSV0fiBcXBz1hJi9E/n22gOVvO1orUBMSVTx5IDzVAEssnzABrPshoReEejw=
 
-addons:
-  firefox: "52.8.0esr"
-
 install: composer install --no-interaction
 
 before_script:
   - mkdir -p build/logs
-  - "DISPLAY=:99.0 xvfb-run java -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar > selenium.log 2>&1 &"
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
@@ -36,6 +32,3 @@ script:
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
-
-after_failure:
-  - cat selenium.log

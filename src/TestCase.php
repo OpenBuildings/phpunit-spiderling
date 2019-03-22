@@ -9,7 +9,6 @@ use Openbuildings\EnvironmentBackup\Environment_Group_Static;
 use Openbuildings\Spiderling\Driver;
 use Openbuildings\Spiderling\Driver_Kohana;
 use Openbuildings\Spiderling\Driver_Phantomjs;
-use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Simple;
 use Openbuildings\Spiderling\Driver_SimpleXML;
 use Openbuildings\Spiderling\Page;
@@ -35,7 +34,7 @@ abstract class TestCase extends BaseTestCase
     protected $_driver;
 
     /**
-     * The type of the spiderling driver (kohana, selenium ...).
+     * The type of the spiderling driver (kohana, phantomjs ...).
      *
      * @var string
      */
@@ -100,11 +99,6 @@ abstract class TestCase extends BaseTestCase
         return new Driver_Kohana();
     }
 
-    public function driver_selenium(): Driver_Selenium
-    {
-        return new Driver_Selenium();
-    }
-
     public function driver_phantomjs(): Driver_Phantomjs
     {
         return new Driver_Phantomjs();
@@ -112,7 +106,7 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Get the type of the driver for the current test.
-     * Use annotations to change the driver type e.g. @driver selenium.
+     * Use annotations to change the driver type e.g. @driver phantomjs.
      */
     public function driver_type(): string
     {
@@ -196,9 +190,6 @@ abstract class TestCase extends BaseTestCase
 
             case 'phantomjs':
                 return $this->driver_phantomjs();
-
-            case 'selenium':
-                return $this->driver_selenium();
 
             default:
                 throw new \Exception("Driver '{$type}' does not exist");

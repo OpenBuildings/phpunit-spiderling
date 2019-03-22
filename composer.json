@@ -16,7 +16,6 @@
         "phpunit/phpunit": "^7"
     },
     "require-dev": {
-        "se/selenium-server-standalone": "~2.43.0",
         "friendsofphp/php-cs-fixer": "^2.1"
     },
     "autoload": {
