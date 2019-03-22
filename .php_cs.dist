@@ -62,6 +62,11 @@ return Config::create()
             'space_before' => 'none',
         ],
         'ternary_to_null_coalescing' => true,
+        'yoda_style' => [
+            'equal' => false,
+            'identical' => false,
+            'less_and_greater' => false,
+        ],
     ])
     ->setUsingCache(true)
     ->setRiskyAllowed(true)

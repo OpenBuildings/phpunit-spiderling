@@ -4,6 +4,7 @@ namespace Openbuildings\PHPUnitSpiderling\Test\Constraint;
 
 use Openbuildings\PHPUnitSpiderling\Constraint\NegativeLocatorConstraint;
 use Openbuildings\PHPUnitSpiderling\TestCase;
+use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @group constraint
@@ -13,7 +14,7 @@ class NegativeLocatorConstraintTest extends TestCase
     /**
      * @driver simple
      */
-    public function test_assert_has_css()
+    public function testAssertHasCSS(): void
     {
         $this->driver()->content(file_get_contents(__DIR__.'/../index.html'));
 
@@ -38,6 +39,11 @@ class NegativeLocatorConstraintTest extends TestCase
             ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
             ->will($this->throwException($exception));
 
+        $other->expects($this->at(2))
+            ->method('not_present')
+            ->with($this->equalTo(['css', '.test', ['filter name' => 'filter']]))
+            ->will($this->throwException($exception));
+
         $locator = new NegativeLocatorConstraint('css', '.test', ['filter name' => 'filter']);
 
         $this->assertTrue($locator->evaluate($other, '', true));
@@ -45,7 +51,23 @@ class NegativeLocatorConstraintTest extends TestCase
         $this->assertFalse($locator->evaluate($other, '', true));
 
         $this->assertEquals('does not have \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->toString());
-        $this->assertEquals('HTML page does not have \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($other));
-        $this->assertEquals('a#navlink-1.navlink does not have \'css\' selector \'.test\', filter {"filter name":"filter"}', $locator->failureDescription($node1));
+
+        try {
+            $locator->evaluate($other, '');
+        } catch (ExpectationFailedException $expectationFailed) {
+            $this->assertEquals(
+                'Failed asserting that HTML page does not have \'css\' selector \'.test\', filter {"filter name":"filter"}.',
+                $expectationFailed->getMessage()
+            );
+        }
+
+        try {
+            $locator->evaluate($node1, '');
+        } catch (ExpectationFailedException $expectationFailed) {
+            $this->assertEquals(
+                'Failed asserting that HTML page does not have \'css\' selector \'.test\', filter {"filter name":"filter"}.',
+                $expectationFailed->getMessage()
+            );
+        }
     }
 }

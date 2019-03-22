@@ -2,7 +2,14 @@
 
 namespace Openbuildings\PHPUnitSpiderling;
 
-class SaveOnFailure implements \PHPUnit\Framework\TestListener
+use PHPUnit\Framework\AssertionFailedError;
+use PHPUnit\Framework\Test;
+use PHPUnit\Framework\TestListener;
+use PHPUnit\Framework\TestSuite;
+use PHPUnit\Framework\Warning;
+use Throwable;
+
+class SaveOnFailure implements TestListener
 {
     /**
      * Convert an attribute strigng from a relative to absolute, by providing a base_url.
@@ -77,7 +84,7 @@ class SaveOnFailure implements \PHPUnit\Framework\TestListener
             throw new \Exception('You must set a directory to output errors to');
         }
 
-        $this->_directory = rtrim($directory, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+        $this->_directory = rtrim($directory, \DIRECTORY_SEPARATOR).\DIRECTORY_SEPARATOR;
         $this->_base_url = $base_url;
 
         self::autocreate_directory($directory);
@@ -120,16 +127,16 @@ class SaveOnFailure implements \PHPUnit\Framework\TestListener
     /**
      * Implement PHPUnit\Framework\TestListener, save driver content if there was an error.
      *
-     * @param \PHPUnit\Framework\Test $test
-     * @param \Exception              $exception
-     * @param int                     $time
+     * @param Test      $test
+     * @param Exception $exception
+     * @param int       $time
      */
-    public function addError(\PHPUnit\Framework\Test $test, \Exception $exception, $time)
+    public function addError(Test $test, Throwable $exception, float $time): void
     {
         if ($test instanceof TestCase and $test->is_driver_active() and $test->driver()->is_page_active()) {
             $this->save_driver_content(
                 $test->driver(),
-                get_class($test).'_'.$test->getName(false),
+                \get_class($test).'_'.$test->getName(false),
                 $exception->getMessage()
             );
         }
@@ -138,51 +145,51 @@ class SaveOnFailure implements \PHPUnit\Framework\TestListener
     /**
      * Implement PHPUnit\Framework\TestListener, save driver content if there was an error.
      *
-     * @param \PHPUnit\Framework\Test                 $test
+     * @param Test                                    $test
      * @param \PHPUnit\Framework\AssertionFailedError $failure
      * @param int                                     $time
      */
-    public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $failure, $time)
+    public function addFailure(Test $test, AssertionFailedError $failure, float $time): void
     {
         if ($test instanceof TestCase and $test->is_driver_active() and $test->driver()->is_page_active()) {
             $this->save_driver_content(
                 $test->driver(),
-                get_class($test).'_'.$test->getName(false),
+                \get_class($test).'_'.$test->getName(false),
                 $failure->getMessage()
             );
         }
     }
 
     // @codeCoverageIgnoreStart
-    public function addWarning(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\Warning $e, $time)
+    public function addWarning(Test $test, Warning $e, float $time): void
     {
     }
 
-    public function addRiskyTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addRiskyTest(Test $test, Throwable $e, float $time): void
     {
     }
 
-    public function addIncompleteTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addIncompleteTest(Test $test, Throwable $e, float $time): void
     {
     }
 
-    public function addSkippedTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addSkippedTest(Test $test, Throwable $e, float $time): void
     {
     }
 
-    public function startTest(\PHPUnit\Framework\Test $test)
+    public function startTest(Test $test): void
     {
     }
 
-    public function endTest(\PHPUnit\Framework\Test $test, $time)
+    public function endTest(Test $test, float $time): void
     {
     }
 
-    public function startTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function startTestSuite(TestSuite $suite): void
     {
     }
 
-    public function endTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function endTestSuite(TestSuite $suite): void
     {
     }
 

@@ -9,15 +9,15 @@ use Openbuildings\EnvironmentBackup\Environment_Group_Static;
 use Openbuildings\Spiderling\Driver;
 use Openbuildings\Spiderling\Driver_Kohana;
 use Openbuildings\Spiderling\Driver_Phantomjs;
-use Openbuildings\Spiderling\Driver_Selenium;
 use Openbuildings\Spiderling\Driver_Simple;
 use Openbuildings\Spiderling\Driver_SimpleXML;
 use Openbuildings\Spiderling\Page;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
  * Base TestCase.
  */
-abstract class TestCase extends \PHPUnit\Framework\TestCase
+abstract class TestCase extends BaseTestCase
 {
     /**
      * Holds drivers fixtures.
@@ -34,7 +34,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected $_driver;
 
     /**
-     * The type of the spiderling driver (kohana, selenium ...).
+     * The type of the spiderling driver (kohana, phantomjs ...).
      *
      * @var string
      */
@@ -50,7 +50,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Restore environment and clear the specific driver if its active.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if ($this->is_driver_active()) {
             $this->driver()->clear();
@@ -99,11 +99,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         return new Driver_Kohana();
     }
 
-    public function driver_selenium(): Driver_Selenium
-    {
-        return new Driver_Selenium();
-    }
-
     public function driver_phantomjs(): Driver_Phantomjs
     {
         return new Driver_Phantomjs();
@@ -111,7 +106,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * Get the type of the driver for the current test.
-     * Use annotations to change the driver type e.g. @driver selenium.
+     * Use annotations to change the driver type e.g. @driver phantomjs.
      */
     public function driver_type(): string
     {
@@ -178,7 +173,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function __call($method, $args)
     {
-        return call_user_func_array([$this->page(), $method], $args);
+        return \call_user_func_array([$this->page(), $method], $args);
     }
 
     private function getDriverFromType(string $type): Driver
@@ -195,9 +190,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
             case 'phantomjs':
                 return $this->driver_phantomjs();
-
-            case 'selenium':
-                return $this->driver_selenium();
 
             default:
                 throw new \Exception("Driver '{$type}' does not exist");

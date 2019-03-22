@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c4b4c030f83610dc7e12471719cd6ae",
+    "content-hash": "51ee1c84e75050fe1534409bd5b3dd80",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -150,16 +150,16 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.26",
+            "version": "0.2.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d"
+                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/f49536ac508fe1214d2f0407dd239eb6dec6505d",
-                "reference": "f49536ac508fe1214d2f0407dd239eb6dec6505d",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/00cec77eb7228204fda55596dee49ff1a5f14ac5",
+                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +189,7 @@
                 }
             ],
             "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2016-09-29T07:05:05+00:00"
+            "time": "2018-08-30T15:17:20+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1412,25 +1412,25 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.2.6",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c"
+                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
+                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -1461,7 +1461,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2019-01-16T09:39:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1931,6 +1931,64 @@
             "time": "2019-02-17T17:44:13+00:00"
         },
         {
+            "name": "kohana/core",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kohana/core.git",
+                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kohana/core/zipball/bdbe81afb5a09cee4269d2e2210a0d293265231a",
+                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "kohana/koharness": "*@dev",
+                "kohana/unittest": "3.3.*@dev"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "ext-http": "*",
+                "ext-mcrypt": "*"
+            },
+            "type": "library",
+            "extra": {
+                "installer-paths": {
+                    "vendor/{$vendor}/{$name}": [
+                        "type:kohana-module"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-3.3/develop": "3.3.x-dev",
+                    "dev-3.4/develop": "3.4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kohana Team",
+                    "email": "team@kohanaframework.org",
+                    "homepage": "http://kohanaframework.org/team",
+                    "role": "developer"
+                }
+            ],
+            "description": "Core system classes for the Kohana application framework",
+            "homepage": "http://kohanaframework.org",
+            "keywords": [
+                "framework",
+                "kohana"
+            ],
+            "time": "2016-07-25T13:15:13+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v9.99.99",
             "source": {
@@ -2072,42 +2130,6 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
-        },
-        {
-            "name": "se/selenium-server-standalone",
-            "version": "v2.43.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
-                "reference": "7dce13644ac0a1df6baa0d5dd4d6b7848981cfad",
-                "shasum": ""
-            },
-            "bin": [
-                "composer/bin/selenium-server-standalone"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Sven Eisenschmidt",
-                    "email": "sven.eisenschmidt@gmail.com"
-                }
-            ],
-            "description": "Composer distribution of Selenium Server Standalone, the browser automation framework. Adds a executable to your composer bin directory.",
-            "homepage": "https://github.com/sveneisenschmidt/selenium-server-standalone",
-            "keywords": [
-                "selenium",
-                "testing"
-            ],
-            "time": "2014-10-07T11:47:50+00:00"
         },
         {
             "name": "symfony/console",
@@ -2744,6 +2766,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.1"
+    },
     "platform-dev": []
 }

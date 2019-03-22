@@ -3,8 +3,9 @@
 namespace Openbuildings\PHPUnitSpiderling\Constraint;
 
 use Openbuildings\Spiderling\Exception_Notfound;
+use PHPUnit\Framework\Constraint\Constraint;
 
-class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint
+class LocatorConstraint extends Constraint
 {
     protected $_type;
     protected $_selector;
@@ -15,9 +16,11 @@ class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint
         $this->_type = $type;
         $this->_selector = $selector;
         $this->_filters = $filters;
+
+        parent::__construct();
     }
 
-    protected function matches($other)
+    protected function matches($other): bool
     {
         try {
             $other->find([$this->_type, $this->_selector, $this->_filters]);
@@ -28,7 +31,7 @@ class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint
         }
     }
 
-    public function failureDescription($other)
+    protected function failureDescription($other): string
     {
         if ($other->is_root()) {
             $node_string = 'HTML page';
@@ -49,10 +52,8 @@ class LocatorConstraint extends \PHPUnit\Framework\Constraint\Constraint
 
     /**
      * Returns a string representation of the constraint.
-     *
-     * @return string
      */
-    public function toString()
+    public function toString(): string
     {
         return "has '{$this->_type}' selector '{$this->_selector}', filter ".json_encode($this->_filters);
     }

@@ -10,18 +10,21 @@
         }
     ],
     "require" : {
+        "php": "^7.1",
         "openbuildings/spiderling": "^0.2",
         "openbuildings/environment-backup": "^0.1",
         "phpunit/phpunit": "^7"
     },
     "require-dev": {
-        "se/selenium-server-standalone": "~2.43.0",
-        "friendsofphp/php-cs-fixer": "^2.1"
+        "friendsofphp/php-cs-fixer": "^2.1",
+        "kohana/core": "^3.3"
     },
     "autoload": {
         "psr-4": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}
     },
     "autoload-dev": {
-        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\Test\\": "tests/"}
+        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\Test\\": "tests/"},
+        "psr-0": {"": "vendor/kohana/core/classes/"},
+        "files": ["tests/kohana_constants.php"]
     }
 }

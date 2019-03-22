@@ -5,7 +5,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/badges/coverage.png?s=37d447d31d3dc3b4129e6e7c79a33c192f71c322)](https://scrutinizer-ci.com/g/OpenBuildings/phpunit-spiderling/)
 [![Latest Stable Version](https://poser.pugx.org/openbuildings/phpunit-spiderling/v/stable.png)](https://packagist.org/packages/openbuildings/phpunit-spiderling)
 
-Heavily inspired by capybara [capybara](https://github.com/jnicklas/capybara). Using the [spiderling](https://github.com/OpenBuildings/spiderling) package to the fullest. It gives you the ability to quickly write integration test with powerful DSL and choose between different drivers with different combinations of features and performance - e.g. selenium, phanomjs or raw php with curl.
+Heavily inspired by capybara [capybara](https://github.com/jnicklas/capybara). Using the [spiderling](https://github.com/OpenBuildings/spiderling) package to the fullest. It gives you the ability to quickly write integration test with powerful DSL and choose between different drivers with different combinations of features and performance - e.g.  phanomjs or raw php with curl.
 
 Example Test:
 
@@ -112,7 +112,7 @@ use Openbuildings\PHPUnitSpiderling\TestCase;
 class SpiderlingTest extends TestCase {
 
 	/**
-	 * @driver selenium
+	 * @driver simple
 	 */
 	public function test_sample()
 	{
@@ -130,45 +130,11 @@ class SpiderlingTest extends TestCase {
 }
 ```
 
-You can have different drivers for each test, the available ones are: ``simple``, ``kohana``, ``selenium`` and ``phantomjs`` - where the default driver is ``simple``. Each driver is loaded with the default configuration, but you can change it by modifying the appropriate method that loads the driver
+You can have different drivers for each test, the available ones are: ``simple``, ``kohana`` and ``phantomjs`` - where the default driver is ``simple``. Each driver is loaded with the default configuration, but you can change it by modifying the appropriate method that loads the driver
 
 - driver_simple() - will return Driver_Simple object
 - driver_kohana() - will return Driver_Kohana object
-- driver_selenium() - will return Driver_Selenium object
 - driver_phantomjs() - will return Driver_Phantomjs object
-
-It is recommended that you create a base TestCase class in your tests if you want to extend these methods and have your relevant class extend that class for example if we had selenium running on a different server than localhost we might do something like this:
-
-```php
-use Openbuildings\PHPUnitSpiderling\TestCase;
-use Openbuildings\Spiderling\Driver_Selenium;
-use Openbuildings\Spiderling\Driver_Selenium_Connection;
-
-abstract class TestCase_Selenium extends TestCase {
-
-	public function driver_selenium()
-	{
-		$connection = new Driver_Selenium_Connection('http://selenium-server.example.com/web/hub/');
-		return new Driver_Selenium($connection);
-	}
-}
-```
-
-And then you would:
-
-```php
-
-class IntegrationTest extends TestCase_Selenium {
-
-	/**
-	 * @driver selenium
-	 */
-	public function test_sample()
-	{
-		// ...
-	}
-}
-```
 
 ## Save on failure
 
