@@ -16,12 +16,15 @@
         "phpunit/phpunit": "^7"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.1"
+        "friendsofphp/php-cs-fixer": "^2.1",
+        "kohana/core": "^3.3"
     },
     "autoload": {
         "psr-4": {"Openbuildings\\PHPUnitSpiderling\\": "src/"}
     },
     "autoload-dev": {
-        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\Test\\": "tests/"}
+        "psr-4": {"Openbuildings\\PHPUnitSpiderling\\Test\\": "tests/"},
+        "psr-0": {"": "vendor/kohana/core/classes/"},
+        "files": ["tests/kohana_constants.php"]
     }
 }
