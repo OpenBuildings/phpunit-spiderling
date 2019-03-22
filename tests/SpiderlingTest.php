@@ -9,7 +9,7 @@ use Openbuildings\Spiderling\Driver_Simple;
 
 class SpiderlingTest extends TestCase
 {
-    const BASE_URL = 'http://6ca1671dbfe9477b14ce-fabb5009fe9cc97c5f42aa7fac8fcd02.r26.cf3.rackcdn.com';
+    const BASE_URL = 'http://localhost:9000';
     const PAGE = '/index.html';
 
     public function driver_phantomjs(): Driver_Phantomjs

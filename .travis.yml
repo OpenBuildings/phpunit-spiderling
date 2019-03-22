@@ -24,6 +24,7 @@ install: composer install --no-interaction
 
 before_script:
   - mkdir -p build/logs
+  - php -S localhost:9000 -t tests >/dev/null 2>&1 &
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
