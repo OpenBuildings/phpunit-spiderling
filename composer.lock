@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51ee1c84e75050fe1534409bd5b3dd80",
+    "content-hash": "979986dbcd196610f1169cee56d6fce2",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -150,26 +150,26 @@
         },
         {
             "name": "openbuildings/spiderling",
-            "version": "0.2.28",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/spiderling.git",
-                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5"
+                "reference": "1982b1beb45673c832f97ed26421efc9d213971a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/00cec77eb7228204fda55596dee49ff1a5f14ac5",
-                "reference": "00cec77eb7228204fda55596dee49ff1a5f14ac5",
+                "url": "https://api.github.com/repos/OpenBuildings/spiderling/zipball/1982b1beb45673c832f97ed26421efc9d213971a",
+                "reference": "1982b1beb45673c832f97ed26421efc9d213971a",
                 "shasum": ""
             },
             "require": {
                 "openbuildings/environment-backup": "~0.1.1",
+                "php": "^7.1",
                 "symfony/css-selector": "^2.3|^3.0"
             },
             "require-dev": {
                 "openbuildings/kohana-test-bootstrap": "^0.2",
-                "phpunit/phpunit": "^4.0|^5.0",
-                "se/selenium-server-standalone": "2.40"
+                "phpunit/phpunit": "^7"
             },
             "type": "library",
             "autoload": {
@@ -188,8 +188,8 @@
                     "role": "Author"
                 }
             ],
-            "description": "Crawl the web with kohana, phantomjs or selenium",
-            "time": "2018-08-30T15:17:20+00:00"
+            "description": "Crawl the web with kohana or phantomjs.",
+            "time": "2020-02-17T10:01:51+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1508,7 +1508,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
