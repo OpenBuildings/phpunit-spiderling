@@ -16,8 +16,6 @@ class NegativeLocatorConstraint extends Constraint
         $this->_type = $type;
         $this->_selector = $selector;
         $this->_filters = $filters;
-
-        parent::__construct();
     }
 
     protected function matches($other): bool
