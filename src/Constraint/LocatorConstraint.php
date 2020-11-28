@@ -11,6 +11,9 @@ class LocatorConstraint extends Constraint
     protected $_selector;
     protected $_filters;
 
+    /**
+     * @paarm string $type
+     */
     public function __construct($type, $selector, array $filters = [])
     {
         $this->_type = $type;
