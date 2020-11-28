@@ -16,7 +16,6 @@
         "phpunit/phpunit": "^9"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.1",
         "kohana/core": "^3.3"
     },
     "autoload": {
