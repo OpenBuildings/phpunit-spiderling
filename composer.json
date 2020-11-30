@@ -10,7 +10,7 @@
         }
     ],
     "require" : {
-        "php": "^7.3",
+        "php": "^7.3 || ^7.4",
         "openbuildings/spiderling": "^0.4",
         "openbuildings/environment-backup": "^0.1",
         "phpunit/phpunit": "^9"
