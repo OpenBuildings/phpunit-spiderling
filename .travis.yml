@@ -4,9 +4,8 @@ language: php
 sudo: false
 
 php:
-  - 7.1
-  - 7.2
   - 7.3
+  - 7.4
 
 branches:
   only:
@@ -29,7 +28,6 @@ before_script:
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - vendor/bin/php-cs-fixer fix --config=.php_cs.dist --verbose --dry-run --diff --no-interaction --using-cache=no --path-mode=intersection `git diff --name-only --diff-filter=d $TRAVIS_COMMIT_RANGE`
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
