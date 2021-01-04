@@ -13,6 +13,7 @@ use Openbuildings\Spiderling\Driver_Simple;
 use Openbuildings\Spiderling\Driver_SimpleXML;
 use Openbuildings\Spiderling\Page;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use PHPUnit\Util\Test as TestUtil;
 
 /**
  * Base TestCase.
@@ -111,7 +112,10 @@ abstract class TestCase extends BaseTestCase
     public function driver_type(): string
     {
         if ($this->_driver_type === null) {
-            $annotations = $this->getAnnotations();
+            $annotations = TestUtil::parseTestMethodAnnotations(
+                get_class($this),
+                $this->getName(false)
+            );
 
             $this->_driver_type = $annotations['method']['driver'][0] ?? false;
         }
